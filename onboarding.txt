@@ -1,0 +1,34 @@
+create new terminal, type:
+1. "npm install --save firebase"
+2. "npm start"
+if step 2 cannot work, type:
+"npm install --save react-router-dom"
+"npm install bootstrap react-bootstrap"
+then continue back with "npm start"
+
+note: inside every file also got clearer description made in comments
+
+index.js: (basically) is for running app.js only...
+firebase.js: for firebase configuration
+
+components:
+    - app.js: the place where u add info for page navigation
+    - dashboard.js: the dashboard page after login (ywei will continue the ui for this)
+    - editprofile.js: the page for edit name and password
+    - forgotpassword.js: the page for send reset password email
+    - login.js: homepage a.k.a. the page before user login (so far i decided to make it like Facebook login)
+    - privateroute.js: used to force user login before access pages that require authentication
+    - signup.js: page for sign up 
+
+contexts:
+    - authcontext.js: for passing "user" information, and declaring functions
+
+links (that maybe helpful (gua)
+- react bootstrap https://react-bootstrap.github.io/getting-started/introduction/
+- bootstrap original css https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css
+- userAuth reference https://www.youtube.com/watch?v=PKwu15ldZ7k&ab_channel=WebDevSimplified
+
+npm i @material-ui/icons
+npm i @material-ui/core
+npm i @material-ui/utils
+
