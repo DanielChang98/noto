@@ -1,4 +1,4 @@
-//sign up page
+//sign up 
 
 import React, { useRef, useState } from "react"
 import { Container, Form, Button, Card, Alert } from "react-bootstrap"
@@ -37,7 +37,7 @@ export default function Signup() {
     }
 
     //update display name
-    promises.push(updateProfile(nameRef.current.value))
+    //promises.push(updateProfile(nameRef.current.value)) 
 
     //run all promises
     Promise.all(promises)
@@ -67,9 +67,6 @@ export default function Signup() {
               <h2 className="text-center mb-4">Sign Up</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
-                <Form.Group id="name">
-                  <Form.Control type="text" ref={nameRef} placeholder="Enter your name" required />
-                </Form.Group>
                 <Form.Group id="email">
                   <Form.Control type="email" ref={emailRef} placeholder="Enter your email" required />
                 </Form.Group>
@@ -94,3 +91,10 @@ export default function Signup() {
     </>
   )
 }
+
+/*
+add after line 68
+<Form.Group id="name">
+              <Form.Control type="text" ref={nameRef} placeholder="Enter your name" required />
+            </Form.Group>
+            */
