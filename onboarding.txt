@@ -10,6 +10,7 @@ then continue back with "npm start"
 
 npm i @material-ui/icons
 npm i @material-ui/core
+npm install --save react-awesome-button
 
 note: inside every file also got clearer description made in comments
 

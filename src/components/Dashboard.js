@@ -15,7 +15,7 @@ export default function Dashboard() {
     { title: "Dashboard", path: "/" },
     { title: "Tasks", path: "/" },
     { title: "Board", path: "/" },
-    { title: "Timer", path: "/" },
+    { title: "Timer", path: "/timer" },
     { title: "Account", path: "/edit-profile" }
   ]
 

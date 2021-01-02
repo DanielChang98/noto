@@ -1,0 +1,132 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.timerContainer{
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.reportButtonContainer{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 5rem;
+    margin-top: 6.5rem;
+    min-height: 32px;
+}
+
+.timerMain{
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #79B6FD;
+    padding: 2rem;
+    border-radius: 5%;
+}
+
+.timerControlButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.timerCountdown{
+    height: fit-content;
+    width: fit;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.timerEstimated{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.timerCenter{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 25rem;
+    justify-content: space-around;
+    padding-top: 2rem;
+}
+
+.startButton{
+    background-color: #ABE9CD;
+    border: #ABE9CD;
+    border-radius: 1rem;
+    cursor: pointer;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+    color: #FFFFFF;
+    outline: none;
+    box-shadow: 0 9px #999;
+
+}
+
+.stopButton{
+    background-color: #DD7554;
+    border: #DD7554;
+    border-radius: 1rem;
+    cursor: pointer;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+    color: #FFFFFF;
+    outline: none;
+    box-shadow: 0 9px #999;
+}
+
+.stopButton:active, .stopButton:focus {
+    outline:0;
+    opacity: .5;
+    background-color: #DD7554;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.startButton:active, .startButton:focus {
+    outline:0;
+    opacity: .5;
+    background-color: #95CAB2;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.startButton:active, .startButton:focus {
+    outline:0;
+    opacity: .5;
+    background-color: #95CAB2;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.time {
+    font-size: 9rem;
+    font-weight: 600;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    color: #fff;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
