@@ -15,8 +15,8 @@ export default function Dashboard() {
   sessionStorage.setItem("userID", userID)
 
   const navLinks = [
-    { title: "Dashboard", path: "/to-do-dashboard" },
-    { title: "Tasks", path: "/" },
+    { title: "Dashboard", path: "/" },
+    { title: "Tasks", path: "/to-do-dashboard" },
     { title: "Board", path: "/" },
     { title: "Timer", path: "/timer" },
     { title: "Account", path: "/edit-profile" }
