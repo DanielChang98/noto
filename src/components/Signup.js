@@ -5,6 +5,7 @@ import { Container, Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import firebase from "firebase/app";
 
 export default function Signup() {
   const nameRef = useRef()
@@ -15,6 +16,8 @@ export default function Signup() {
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
+  const databaseRef = firebase.database().ref();
+  const userRef = databaseRef.child("user/");
 
   //function for handling submitted sign up form
   async function handleSubmit(e) {
@@ -42,6 +45,7 @@ export default function Signup() {
     //run all promises
     Promise.all(promises)
       .then(() => {
+        userRef.push(emailRef.current.value)
         history.push("/")  //return to dashboard
       })
       .catch(() => {

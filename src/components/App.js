@@ -7,6 +7,8 @@ import PrivateRoute from "./PrivateRoute" //to prevent unauthorised access of pa
 import Signup from "./Signup"
 import Login from "./Login"
 import ForgotPassword from "./ForgotPassword"
+import ToDoDashboard from "./toDo/toDoDashboard"
+import myList from "./toDo/myList"
 import Dashboard from "./Dashboard"
 import EditProfile from "./EditProfile"
 import Timer from './Timer'
@@ -24,6 +26,8 @@ function App() {
           <PrivateRoute exact path="/" component={Dashboard} />
           <PrivateRoute path="/edit-profile" component={EditProfile} />
           <PrivateRoute path="/timer" component={Timer}/>
+          <PrivateRoute path="/to-do-dashboard" component={ToDoDashboard} />
+          <PrivateRoute path="/to-do-list" component={myList} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/forgot-password" component={ForgotPassword} />
