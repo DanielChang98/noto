@@ -4,11 +4,13 @@ import Loader from "./loader";
 import firebase from "firebase";
 
 function ToDoList() {
-  const listID = sessionStorage.getItem("listID");
+  const userID = sessionStorage.getItem("userID");
   const databaseRef = firebase.database().ref();
-  const todosRef = databaseRef.child("toDo/"+listID);
+  const todolist = JSON.parse(sessionStorage.getItem('todolist'));
+  const todosRef = databaseRef.child("toDo/"+userID+'/'+todolist.id)
   const [loading, setLoading] = React.useState(true)
   const [todos,setTodos]  = useState([]);
+  
   useEffect(() => {
     todosRef.on('value', (snapshot) => {
       let items = snapshot.val();
@@ -18,7 +20,7 @@ function ToDoList() {
           id: item,
           title: items[item].title,
           status: items[item].status,
-          listID: listID
+          listID: todolist.id
         });
       }
       setTodos(newState)

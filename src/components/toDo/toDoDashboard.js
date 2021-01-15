@@ -7,20 +7,24 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import firebase from "firebase/app";
+import {IconButton, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 
 function ToDoDashboard(){
     // Function to redirect to 'toDoList' page
+  const userID = sessionStorage.getItem("userID");
   const [tag, setTag] = useState("");
   const [title, setTitle] = useState("");
-  const [listID, setListID] = useState("");
+  const [open, setOpen] = useState(false);
   const [lists,setList]  = useState([]);
+  const [deleteID, setDeleteID] = useState('');
   const [loading, setLoading] = React.useState(true)
 
   //set colours of the to do list
   var colour="";
 
   const databaseRef = firebase.database().ref();
-  const todosRef = databaseRef.child("toDoList/");
+  const todosRef = databaseRef.child("toDoList/"+userID);
 
   useEffect(() => {
     todosRef.on('value', (snapshot) => {
@@ -58,7 +62,7 @@ function ToDoDashboard(){
         colour= "#E6CDFF";
 
       var listKey = firebase.database().ref().child('toDoList').push().key;
-      firebase.database().ref('toDoList/' + listKey).set({
+      firebase.database().ref('toDoList/' + userID + '/' + listKey).set({
         listID: listKey,
         title: title,
         tag : tag,
@@ -73,9 +77,23 @@ function ToDoDashboard(){
     const viewList = async e =>
     {
       e.preventDefault();
-      sessionStorage.setItem("listID", listID)
-      console.log("LISTID: "+listID)
       window.location.href = `/${"to-do-list"}`
+    }
+
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    const openDeleteDialog = (todolist) => {
+      setOpen(true);
+      setDeleteID(todolist.id);
+    }
+
+    const confirmDelete = () => {
+      const todosItemRef = databaseRef.child("toDo/"+userID);
+      todosRef.child(deleteID).remove();
+      todosItemRef.child(deleteID).remove();
+      setOpen(false);
     }
 
 		return(
@@ -128,16 +146,34 @@ function ToDoDashboard(){
           <div className="todolist-card-container" >
           {lists.map((todolist) => (
             <React.Fragment key={todolist.id}>
+              
               <form method = "post" onSubmit ={viewList}>
-                <button onClick={(e) => setListID(todolist.id)} type="submit" className="todolist-card" style={{backgroundColor: todolist.colour}}>
+                <button onClick={sessionStorage.setItem('todolist',JSON.stringify(todolist))} type="submit" className="todolist-card" style={{backgroundColor: todolist.colour}}>
+                  <IconButton type="reset" className="deleteList" onClick={() => openDeleteDialog(todolist)}>
+                    <CloseIcon/>
+                  </IconButton>
                   <p>{todolist.title}</p>
-                  <p>{todolist.tag}</p>
+                  <p className="list-tag">{todolist.tag}</p>
                 </button>
               </form>
+              
             </React.Fragment>
           ))}
           </div>
-          </div>  
+          </div> 
+          <Dialog open={open} onClose={handleClose}>
+            <DialogContent>
+              Are you sure you want to delete?
+            </DialogContent>
+            <DialogActions>
+            <Button onClick={handleClose} color="primary">
+                Cancel
+            </Button>
+            <Button onClick={() => confirmDelete()} color="primary">
+                Delete
+            </Button>
+            </DialogActions>
+        </Dialog> 
         </div>
     )
 }

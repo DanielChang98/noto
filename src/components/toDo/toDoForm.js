@@ -3,17 +3,17 @@ import TextField from "@material-ui/core/TextField";
 import firebase from "firebase";
 
 function ToDoForm() {
-  
-  const listID = sessionStorage.getItem("listID");
+  const userID = sessionStorage.getItem("userID");
+  const todolist = JSON.parse(sessionStorage.getItem('todolist'));
   const databaseRef = firebase.database().ref();
-  const todosRef = databaseRef.child("toDo/"+listID)
+  const todosRef = databaseRef.child("toDo/"+userID+'/'+todolist.id)
   const [value, setValue] = useState("");
   const createTodo = (e) => {
     e.preventDefault();
     const item = {
       title: value,
       status: false,
-      listID: listID
+      listID: todolist.id
     };
     todosRef.push(item);
     setValue("");

@@ -9,14 +9,15 @@ import { FormControlLabel, Checkbox, Button, TextField, IconButton, Dialog, Dial
 import firebase from "firebase";
 
 function Todo(props) {
-    const listID = sessionStorage.getItem("listID");
+    const userID = sessionStorage.getItem("userID");
+    const todolist = JSON.parse(sessionStorage.getItem('todolist'));
     const databaseRef = firebase.database().ref();
-    const todosRef = databaseRef.child("toDo/"+listID)
+    const todosRef = databaseRef.child("toDo/"+userID+'/'+todolist.id)
     const { todo } = props;
-
     const [open, setOpen] = useState(false);
     const [updateTitle, setUpdateTitle] = useState('');
     const [toUpdateId, setToUpdateId] = useState('');
+    
 
     const updateStatus = () => {
     todosRef.child(todo.id).set({...todo,status:!todo.status})
@@ -29,7 +30,7 @@ function Todo(props) {
     }
 
     const editTodo = () => {
-        firebase.database().ref('toDo/'+ listID +'/'+toUpdateId).update({
+        firebase.database().ref('toDo/'+ userID +'/'+todolist.id+'/'+toUpdateId).update({
           title: updateTitle
         });
         setOpen(false);
