@@ -6,14 +6,17 @@ import { useAuth } from "../contexts/AuthContext"
 import { IconButton, AppBar, Toolbar, List, ListItem, ListItemText } from "@material-ui/core"
 import { ExitToApp } from "@material-ui/icons"
 import { useHistory } from "react-router-dom"
+import firebase from "firebase/app";
 
 export default function Dashboard() {
   const { currentUser, logout } = useAuth()
   const history = useHistory()
+  const userID = firebase.auth().currentUser.uid
+  sessionStorage.setItem("userID", userID)
 
   const navLinks = [
     { title: "Dashboard", path: "/" },
-    { title: "Tasks", path: "/" },
+    { title: "Tasks", path: "/to-do-dashboard" },
     { title: "Board", path: "/" },
     { title: "Timer", path: "/timer" },
     { title: "TimerReport", path: "/timer-report"},

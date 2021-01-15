@@ -1,20 +1,25 @@
 import React from "react"
-import Home from './HomePageComponent/top-half'
+import firebase from "firebase/app";
 import Top from './HomePageComponent/top-half'
 import Bottom from './HomePageComponent/btm-half'
-import Dashboard from './Dashboard'
+import NavBar from './NavBar'
+import Footer from './Footer'
 
 export default function HomePage() {
-
+//get the current user id
+const userID = firebase.auth().currentUser.uid
+sessionStorage.setItem("userID", userID)
     return(
         <>
-            <Dashboard></Dashboard>
+            <NavBar/>
+
             <div>
                 <Top></Top>
             </div>
             <div>
                 <Bottom></Bottom>
             </div>
+            <Footer/>
         </>
     );
 }
