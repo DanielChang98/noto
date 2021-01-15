@@ -48,7 +48,7 @@ function NavBar()
                 </div>
             </div>
                 
-            <div className="bar">
+            <div className="navi-bar">
             </div>
     </div>
     )

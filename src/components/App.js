@@ -9,7 +9,6 @@ import Login from "./Login"
 import ForgotPassword from "./ForgotPassword"
 import ToDoDashboard from "./toDo/toDoDashboard"
 import myList from "./toDo/myList"
-import Dashboard from "./Dashboard"
 import EditProfile from "./EditProfile"
 import Home from './HomePage'
 import Timer from './Timer'

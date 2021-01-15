@@ -2,7 +2,8 @@ import React from 'react';
 import { AwesomeButton } from 'react-awesome-button';
 import Button from '@material-ui/core/Button';
 import AssessmentIcon from '@material-ui/icons/Assessment';
-import Dashboard from './Dashboard'
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 import "react-awesome-button/dist/styles.css";
 import '../timer.css';
 
@@ -144,10 +145,9 @@ export default class TimerPage extends React.Component{
 
     render(){
         return(
-            <div className="container">
-                <div>
-                    <Dashboard></Dashboard>
-                </div>
+            <>
+            <NavBar/>
+            <div className="container-timer">
                 <div className="reportButtonContainer">
                     <Button
                         variant="outlined"
@@ -176,6 +176,8 @@ export default class TimerPage extends React.Component{
                     </div>
                 </div>
             </div>
+            <Footer/>
+            </>
         );
     }
 }
