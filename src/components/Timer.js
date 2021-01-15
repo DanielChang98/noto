@@ -125,25 +125,6 @@ export default class TimerPage extends React.Component{
         return _title;
     }
     
-    
-    toggleMode(gotoDirection) {
-        let timeTypes = this.getFormatTypes();
-        let currentPosition = -1;
-    
-    
-        for (let i = 0; i < timeTypes.length; i++) {
-          if (timeTypes[i].time === this.state.timeType) {
-            currentPosition = i;
-            break;
-          };
-        };
-    
-        if (currentPosition !== -1) {
-          let newMode = timeTypes[currentPosition + gotoDirection];
-          if (newMode) this.setTime(newMode.time);
-        };
-    }
-    
     _setLocalStorage (item, element) {
         let value = element.target.checked;
         localStorage.setItem('react-pomodoro-' + item, value);
@@ -154,66 +135,11 @@ export default class TimerPage extends React.Component{
     }
     
     alert() {
-        // vibration
-        if(this.refs.vibrate.checked) {
-          window.navigator.vibrate(1000);
-        }
-        // audio
-        if(this.refs.audio.checked) {
-          let audio = new Audio('songs/alarm.mp3');
-          audio.play();
-          setTimeout(()=> audio.pause(), 1400);
-        }
-        // notification
-        if(this.refs.notification.checked) {
-          if (this.state.timeType === 1500) {
-            let notification = new Notification("Relax :)", {
-              icon: "img/coffee.png",
-              lang: "en",
-              body: "Go talk or drink a coffee."
-            });
-          } else {
-            let notification = new Notification("The time is over!", {
-              icon: "img/code.png",
-              lang: "en",
-              body: "Hey, back to code!"
-            });
-          }
-        }
-    }
-
-    estimatedTime(){
-        // var type = this.getTimerType();
-        var time;
-
-        var today = new Date();
-        var minutes;
-
-        // if(1500===type){
-        //     minutes=25;
-        // }
-        // else if(300===type){
-        //     minutes=5;
-        // }
-        // else{
-        //     minutes=15;
-        // }
-
-        // let twentyMinutesLater = new Date(today.getTime() + (minutes*60*1000))
-        // console.log(twentyMinutesLater);
- 
-        // time = twentyMinutesLater.getHours()+":";
-
-        // if(twentyMinutesLater.getMinutes()<10){
-        //     time = time + "0" + twentyMinutesLater.getMinutes();
-        // }
-        // else{
-        //     time = time + twentyMinutesLater.getMinutes();
-        // }
-
-        console.log("hi")
-
-        // return time;
+      console.log("hello");
+      let audio = new Audio('/song/alarm.mp3');
+      console.log(audio);
+      audio.play();
+      setTimeout(()=> audio.pause(), 1400);
     }
 
     render(){

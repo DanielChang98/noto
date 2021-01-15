@@ -29,7 +29,10 @@
     flex-direction: column;
     justify-content: center;
     background-color: #79B6FD;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     border-radius: 5%;
 }
 

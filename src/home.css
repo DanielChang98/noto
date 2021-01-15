@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&display=swap');
+
+.home{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: red;
+    padding-top: 5rem;
+    background-image: linear-gradient(to right, #79B6FD, #BAE9F8);
+}
+
+.textBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.h1{
+    font-family: 'Roboto Slab';
+    font-weight: 700;
+}
+
+.p{
+    font-family: 'Roboto Slab';
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #605C5C;
+}
+
+.btmHalfContainer{
+    padding-top: 3.5rem;
+}
+
+.btmHalfTitle{
+    padding-left: 3rem;
+    padding-bottom: 1.5rem;
+}
+
+.btmHalfH3{
+    font-family: 'Roboto Slab';
+    font-weight: 700;
+    color: #677B8B;
+}
+
+.card{
+    width: 15rem;
+}
+
+.cardContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+}
+
+.cardImage{
+    height:12rem;
+}
