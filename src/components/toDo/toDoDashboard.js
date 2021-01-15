@@ -65,7 +65,6 @@ function ToDoDashboard(){
 
       var listKey = firebase.database().ref().child('toDoList').push().key;
       firebase.database().ref('toDoList/' + userID + '/' + listKey).set({
-        listID: listKey,
         title: title,
         tag : tag,
         colour: colour
@@ -79,6 +78,8 @@ function ToDoDashboard(){
     const viewList = async e =>
     {
       e.preventDefault();
+      const todolist = JSON.parse(sessionStorage.getItem('todolist'));
+      console.log("LIST Name: "+todolist.title)
       window.location.href = `/${"to-do-list"}`
     }
 

@@ -13,7 +13,6 @@ function ToDoForm() {
     const item = {
       title: value,
       status: false,
-      listID: todolist.id
     };
     todosRef.push(item);
     setValue("");
