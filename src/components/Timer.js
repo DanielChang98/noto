@@ -6,6 +6,29 @@ import Dashboard from './Dashboard'
 import "react-awesome-button/dist/styles.css";
 import '../timer.css';
 
+/**
+ * @summary: This page is the pomodoro timer page. Not related to timer report page.
+ * 
+ * @description: below i will list all the important functions to be listed inside the report, 
+ *               and briefly describe their functions.
+ * 
+ * @constructor: Timer feature uses setState mostly. There are 5 state variables and 6 functions under this class.
+ *               Everytime the 3 buttons are clicked, if will set the state for the variables according to the time of pomodoro.
+ *               The setTimeForCode, setTimeForSocial, setTimeForCoffee functions just calls the @function setTime() with their
+ *                  pre-set time in seconds.
+ * 
+ * @function setTime(): this function is in charge of SETTING the countdown. If setTimeForCode/Social/Coffee calls for this function,
+ *                      they will pass how long the timer should count down. This function will set state for some variables and call
+ *                      @function restartInterval().
+ * 
+ * @function restartInterval(): this function is in charge of PERFORMING the countdown. The crucial codes are
+ *             @code clearInterval(this.interval); //stops the current countdown.
+ *             @code this.interval = setInterval(this.elapseTime, 1000); //setInterval is built in function.
+ *                                                                       //it will call @function elapseTime() every 1s.
+ * 
+ * @function elapseTime(): this function is in charge of MINUSING the time. will set state for @var time by minusing 1 until 0;
+ */
+
 export default class TimerPage extends React.Component{
     constructor() {
         super();
@@ -27,7 +50,6 @@ export default class TimerPage extends React.Component{
 
     componentDidMount() {
         this.setDefaultTime();
-        Notification.requestPermission();
     }
 
     elapseTime() {

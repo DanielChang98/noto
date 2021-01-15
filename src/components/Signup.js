@@ -1,6 +1,7 @@
 //sign up 
 
 import React, { useRef, useState } from "react"
+import Firebase from '../contexts/FirebaseInit'
 import { Container, Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
@@ -31,7 +32,8 @@ export default function Signup() {
 
     try {
       //await - wait for signup to finish
-      await signup(emailRef.current.value, passwordRef.current.value) //create account      
+      await signup(emailRef.current.value, passwordRef.current.value) //create account 
+      Firebase(); //add userID to hours and userTimerReport     
     } catch {
       setError("Failed to create an account")
     }

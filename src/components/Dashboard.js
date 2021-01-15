@@ -2,7 +2,6 @@
 //line 16 to 18 is where you add pathname as written in app.js (add after path: "/)
 
 import React from "react"
-import Firebase from '../contexts/FirebaseInit'
 import { useAuth } from "../contexts/AuthContext"
 import { IconButton, AppBar, Toolbar, List, ListItem, ListItemText } from "@material-ui/core"
 import { ExitToApp } from "@material-ui/icons"
@@ -20,8 +19,6 @@ export default function Dashboard() {
     { title: "TimerReport", path: "/timer-report"},
     { title: "Account", path: "/edit-profile" }
   ]
-
-  Firebase(); //add userID to hours and userTimerReport
 
   //function to handle logout
   async function handleLogout() {

@@ -5,6 +5,7 @@ import { Container, Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
+import TimerFirebase from "../Firebase/LoginFirebaseInit"
 
 export default function Login() {
   const emailRef = useRef()
@@ -24,6 +25,7 @@ export default function Login() {
       //await - wait for login to finish
       await login(emailRef.current.value, passwordRef.current.value)
       history.push("/") //navigate user to dashboard
+      TimerFirebase();
     } catch {
       setError("Failed to log in")
     }

@@ -6,6 +6,10 @@ const array = [
     "userTimerReport"
 ];
 
+/**
+ * @summary: add the new sign up user ID into 'hours' and 'userTimerReport' in real time database.
+ */
+
 export default function FirebaseInit(){
     var date = new Date();
     var isExist=true;
@@ -27,7 +31,7 @@ export default function FirebaseInit(){
                 if(value=="hours"){
                     refDB.child(id).set(
                         {
-                            [id]: {
+                            [day]: {
                                 hour: 0,
                                 date: day
                             }
