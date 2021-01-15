@@ -57,7 +57,11 @@ function Todo(props) {
             control={<BlueCheckbox icon={<RadioButtonUncheckedIcon />} checkedIcon={<CheckIcon />} name="checkStatus" 
             checked={todo.status} onChange={updateStatus}/>}
             />
+            { todo.status === true ?
+            <p className="todo-done">{todo.title}</p>
+            :
             <p>{todo.title}</p>
+            }
         </div>
         
         <div className="todo-button">

@@ -1,11 +1,22 @@
-.container{
+.todo-dashboard-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+    height: auto;
+    min-height: 75vh;
 }
 
+.mylist-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: auto;
+  min-height: 75vh;
+}
 .upper-container{
   display: flex;
 }
@@ -253,5 +264,9 @@
     font-size: 14px;
     font-style: italic;
     color: #31699b;
+  }
+
+  .todo-done{
+    text-decoration-line: line-through;
   }
 

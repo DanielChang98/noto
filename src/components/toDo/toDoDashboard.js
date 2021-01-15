@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import NavBar from "../NavBar";
+import Footer from "../Footer";
 import './toDo.css';
 import Loader from "./loader";
 import TextField from '@material-ui/core/TextField';
@@ -97,7 +99,9 @@ function ToDoDashboard(){
     }
 
 		return(
-        <div className = "container">
+      <>
+      <NavBar/>
+      <div className = "todo-dashboard-container">
           <div className = "upper-container">
             <form method = "post" onSubmit ={handleSubmit}>
             <div className = "align-row">
@@ -175,6 +179,8 @@ function ToDoDashboard(){
             </DialogActions>
         </Dialog> 
         </div>
+        <Footer/>
+      </> 
     )
 }
 

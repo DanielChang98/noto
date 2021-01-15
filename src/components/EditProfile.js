@@ -4,6 +4,8 @@ import React, { useRef, useState } from "react"
 import { Container, Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 export default function EditProfile() {
   const nameRef = useRef()
@@ -50,6 +52,7 @@ export default function EditProfile() {
 
   return (
     <>
+    <NavBar/>
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh" }}
@@ -97,6 +100,7 @@ export default function EditProfile() {
           </div>
         </div>
       </Container>
+      <Footer/>
     </>
   )
 }
