@@ -289,3 +289,10 @@
     text-decoration-line: line-through;
   }
 
+  .mylist h3{
+    text-align: left;
+    align-self: flex-start;
+    color: #003E73;
+    margin-bottom: -10px;
+  }
+
