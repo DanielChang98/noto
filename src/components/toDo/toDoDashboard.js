@@ -75,9 +75,8 @@ function ToDoDashboard(){
       });
     }
 
-    const viewList = async e =>
+    const viewList = (e) =>
     {
-      e.preventDefault();
       const todolist = JSON.parse(sessionStorage.getItem('todolist'));
       console.log("LIST Name: "+todolist.title)
       window.location.href = `/${"to-do-list"}`
@@ -151,17 +150,13 @@ function ToDoDashboard(){
           <div className="todolist-card-container" >
           {lists.map((todolist) => (
             <React.Fragment key={todolist.id}>
-              
-              <form method = "post" onSubmit ={viewList}>
-                <button onClick={sessionStorage.setItem('todolist',JSON.stringify(todolist))} type="submit" className="todolist-card" style={{backgroundColor: todolist.colour}}>
+                <button onClick={() => viewList(sessionStorage.setItem('todolist',JSON.stringify(todolist)))} type="submit" className="todolist-card" style={{backgroundColor: todolist.colour}}>
                   <IconButton type="reset" className="deleteList" onClick={() => openDeleteDialog(todolist)}>
                     <CloseIcon/>
                   </IconButton>
                   <p>{todolist.title}</p>
                   <p className="list-tag">{todolist.tag}</p>
                 </button>
-              </form>
-              
             </React.Fragment>
           ))}
           </div>
