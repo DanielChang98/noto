@@ -150,13 +150,14 @@ function ToDoDashboard(){
           <div className="todolist-card-container" >
           {lists.map((todolist) => (
             <React.Fragment key={todolist.id}>
-                <button onClick={() => viewList(sessionStorage.setItem('todolist',JSON.stringify(todolist)))} type="submit" className="todolist-card" style={{backgroundColor: todolist.colour}}>
-                  <IconButton type="reset" className="deleteList" onClick={() => openDeleteDialog(todolist)}>
-                    <CloseIcon/>
-                  </IconButton>
-                  <p>{todolist.title}</p>
-                  <p className="list-tag">{todolist.tag}</p>
-                </button>
+              <button onClick={() => viewList(sessionStorage.setItem('todolist',JSON.stringify(todolist)))} className="todolist-card" style={{backgroundColor: todolist.colour}}>
+                
+                <p>{todolist.title}</p>
+                <p className="list-tag">{todolist.tag}</p>
+              </button>
+              <button className="deleteList" onClick={() => openDeleteDialog(todolist)} >
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
             </React.Fragment>
           ))}
           </div>

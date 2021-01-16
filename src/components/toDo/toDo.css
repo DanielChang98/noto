@@ -251,13 +251,32 @@
   }
 
   .deleteList{
-    position: absolute;
-    top: -30px;
-    right: -75px;
+    position: relative;
+    z-index: 10;
+    color: #003E73;
+    border: none;
+    outline:none;
+    background-color: transparent;
+    top: 25px;
+    right: 60px;
+    font-size: 22px;
+    font-weight: lighter;
+    width: 22px;
+    height: 22px;
   }
+
+.deleteList:focus {
+    outline:none;
+}
+
+.deleteList:hover{
+  color: white;
+  text-shadow: 2px 2px #C4C4C4;
+}
 
   .todolist-card{
     position: relative;
+    z-index: 1;
   }
 
   .list-tag{
