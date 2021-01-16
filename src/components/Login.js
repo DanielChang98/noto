@@ -23,7 +23,7 @@ export default function Login() {
       setLoading(true)  //prevent form from being submitted multiple times
       //await - wait for login to finish
       await login(emailRef.current.value, passwordRef.current.value)
-      history.push("/") //navigate user to dashboard
+      history.push("/home") //navigate user to dashboard
     } catch {
       setError("Failed to log in")
     }

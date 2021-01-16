@@ -7,11 +7,10 @@ import { Link, useHistory } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 export default function Signup() {
-  const nameRef = useRef()
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
-  const { signup, updateProfile } = useAuth()
+  const { signup} = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
@@ -35,9 +34,6 @@ export default function Signup() {
     } catch {
       setError("Failed to create an account")
     }
-
-    //update display name
-    //promises.push(updateProfile(nameRef.current.value)) 
 
     //run all promises
     Promise.all(promises)
@@ -91,10 +87,3 @@ export default function Signup() {
     </>
   )
 }
-
-/*
-add after line 68
-<Form.Group id="name">
-              <Form.Control type="text" ref={nameRef} placeholder="Enter your name" required />
-            </Form.Group>
-            */
