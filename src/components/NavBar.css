@@ -61,6 +61,10 @@
     display: flex;
 }
 
+.buttons-register-login ul{
+    list-style-type: none;
+}
+
 ul{
     display: flex;
     justify-content:center;
@@ -94,4 +98,30 @@ ul{
 
 .nav-container li {
     padding: 25px 30px;
+}
+
+.buttons-register-login{
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+}
+
+.buttons-register-login-holder{
+    justify-content: flex-end;
+    display: flex;
+}
+
+.buttons-register-login .buttons-register-login-holder li a{
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    color: #76B4FF;
+    font-weight: 700;
+    margin-top: -80px;
+    text-decoration: none;
+}
+
+.buttons-register-login .buttons-register-login-holder li a:hover{
+    color: #19467A;
 }

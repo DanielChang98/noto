@@ -11,8 +11,8 @@ function NotoNavBar()
                     <img src={logo} alt="Logo"/>
                     <p>Noto</p>
                 </div>
-                <div className="buttons-navbar">
-                    <div className="buttons-navbar-holder">
+                <div className="buttons-register-login">
+                    <div className="buttons-register-login-holder">
                         <ul>
                             <li><a href="/login">Login</a></li>
                             <li><a href="/signup">Sign Up</a></li>

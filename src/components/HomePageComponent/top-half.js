@@ -12,6 +12,7 @@ export default function TopHalf(){
                     and collaborate with your teams. <br/>
                     Stay motivated, stay effective with Noto.</p>
                </div>
+               
                 <div>
                     <img src="/taskmanage.png" alt=""/>
                 </div>
