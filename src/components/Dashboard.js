@@ -18,7 +18,7 @@ export default function Dashboard() {
   const navLinks = [
     { title: "Dashboard", path: "/" },
     { title: "Tasks", path: "/to-do-dashboard" },
-    { title: "Board", path: "/" },
+    { title: "Board", path: "/board-dashboard" },
     { title: "Timer", path: "/timer" },
     { title: "TimerReport", path: "/timer-report"},
     { title: "Account", path: "/edit-profile" }

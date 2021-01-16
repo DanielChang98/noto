@@ -14,6 +14,8 @@ import Home from './HomePage'
 import Noto from './NotoHome'
 import Timer from './Timer'
 import TimerReport from './TimerReport'
+import BoardDashBoard from './Board/BoardDashboard'
+import Board from './Board/Board'
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <PrivateRoute path="/to-do-dashboard" component={ToDoDashboard} />
           <PrivateRoute path="/to-do-list" component={myList} />
           <PrivateRoute path="/timer-report" component={TimerReport}/>
+          <PrivateRoute path="/board-dashboard" component={BoardDashBoard}/>
+          <PrivateRoute path="/board/:key" component={Board} />
           <Route exact path="/" component={Noto} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />

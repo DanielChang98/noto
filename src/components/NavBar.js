@@ -33,7 +33,7 @@ function NavBar()
                         <ul>
                             <li><a href="/home">Dashboard</a></li>
                             <li><a href="/to-do-dashboard">Tasks</a></li>
-                            <li><a href="/">Board</a></li>
+                            <li><a href="/board-dashboard">Board</a></li>
                             <li><a href="/timer">Timer</a></li>
                             <li><a href="/edit-profile">Account</a></li>
                             <li>
