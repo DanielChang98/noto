@@ -2,13 +2,12 @@ import React from "react"
 import Top from './HomePageComponent/top-half'
 import Bottom from './HomePageComponent/btm-half'
 import Footer from './Footer'
-
-import { Link } from "react-router-dom"
+import NotoNavBar from "./NotoNavBar";
 
 export default function NotoHome() {
     return(
         <>
-         <Link to="/login">Log In</Link><br />
+            <NotoNavBar/>
             <div>
                 <Top></Top>
             </div>
