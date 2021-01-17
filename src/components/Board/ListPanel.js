@@ -9,21 +9,22 @@ class ListPanel extends Component {
     constructor() {
         super();
         this.state = {
-            cards: {},
+            notes: {},
+            // i: 0
         }
-      }
+    }
 
-    componentDidMount () {
-        const myCard = firebase.database().ref("cards/")
-  
-        myCard.orderByChild("listKey").equalTo(this.props.list.key).on("value", snapshot => {
-            const myCardFromDatabase = snapshot.val();
-            if (myCardFromDatabase === null) {
-                console.log ("Card at our database is null")
+    componentDidMount() {
+        const myNote = firebase.database().ref("notes/")
+
+        myNote.orderByChild("cardKey").equalTo(this.props.card.key).on("value", snapshot => {
+            const myNoteFromDatabase = snapshot.val();
+            if (myNoteFromDatabase === null) {
+                console.log("Note at our database is null")
             } else {
-                this.setState({cards: snapshot.val() || {}});
+                this.setState({ notes: snapshot.val() || {} });
             }
-            }); 
+        });
     }
 
     onDragOver = (e) => {
@@ -36,54 +37,62 @@ class ListPanel extends Component {
 
     onDrop = (e) => {
         e.preventDefault();
-        var card = JSON.parse(e.dataTransfer.getData("card"));
-        card.listKey = this.props.list.key;
-        var key = card.key;
-        delete card.key;
-        console.log("card.listKey is what", card.text);
-        firebase.database().ref("cards/").update({
+        var note = JSON.parse(e.dataTransfer.getData("note"));
+        note.cardKey = this.props.card.key;
+        var key = note.key;
+        delete note.key;
+        console.log("note.cardKey is what", note.text);
+        firebase.database().ref("notes/").update({
             [key]: {
-                listKey: card.listKey,
-                text: card.text
+                cardKey: note.cardKey,
+                text: note.text
             }
         });
-        console.log(this.state.cards);
+        console.log(this.state.notes);
     }
+
 
     render() {
 
-        var cards = Object.keys(this.state.cards).map(key => {
-            var card = this.state.cards[key];
-            card.key = key;
-            return <ListCard 
-                    key={key} 
-                    card={card} 
-                    style={{position: "absolute", right: "5", top: "0"}}
-                    // propTypes={{card: React.PropTypes.object.isRequired}}
-                    />
-        });  
+        var notes = Object.keys(this.state.notes).map(key => {
+            var note = this.state.notes[key];
+            note.key = key;
+            return <ListCard
+                key={key}
+                note={note}
+                style={{ position: "absolute", right: "5", top: "0" }}
+            // propTypes={{card: React.PropTypes.object.isRequired}}
+            />
+        });
+
+        // const randomList = ["#CCF3FF", "#E6CDFF", "#C1DEFF", "#E3FFF3", "#FFF3CA", "#FFDACE"]
+        // const randomColor = randomList[this.state.i];
+        // var temp = this.state.i;
+        // temp = (temp + 1) % 6;
+        // this.setState({ i: temp });
 
         return (
-            <div 
-                className="list-container-2" 
-                onDragOver={(e) => this.onDragOver(e)} 
-                onDragLeave={(e) => this.onDragLeave(e)} 
-                onDrop={(e) => {this.onDrop(e)}}
+            <div
+                // style={{ backgroundColor: randomColor }}
+                className="card-container-2"
+                onDragOver={(e) => this.onDragOver(e)}
+                onDragLeave={(e) => this.onDragLeave(e)}
+                onDrop={(e) => { this.onDrop(e) }}
             >
-                <div className="list-panel-default">
-                    <h3 className="list-heading">
-                        {this.props.list.name}
-                    </h3>            
-                    <div className="list-body">
-                        {cards}
+                <div className="card-panel-default">
+                    <h3 className="card-heading">
+                        {this.props.card.name}
+                    </h3>
+                    <div className="card-body">
+                        {notes}
                     </div>
-                    <div className="list-footer">
-                        <ListCardForm 
-                            listKey={this.props.list.key} 
-                            isInputMode={this.props.isInputMode} 
-                            toggleIsInputMode={this.props.toggleIsInputMode} 
+                    <div className="card-footer">
+                        <ListCardForm
+                            cardKey={this.props.card.key}
+                            isInputMode={this.props.isInputMode}
+                            toggleIsInputMode={this.props.toggleIsInputMode}
                         />
-                    </div>                            
+                    </div>
                 </div>
             </div>
         );

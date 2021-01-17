@@ -13,14 +13,20 @@ class ListCardForm extends Component {
 
     componentDidMount () {
         this.NOTE_MIN_LENGTH = 3;
-        this.cardsRef = firebase.database().ref("cards/")
+        this.notesRef = firebase.database().ref("notes/");
     }
 
     toggleIsInputMode = e => {
-        this.props.toggleIsInputMode(this.props.listKey);
-        setTimeout(function() {
-            this.refs.note.focus();            
-        }.bind(this));
+        this.setState({
+            isInputMode: !this.state.isInputMode},
+            () => {
+                if (this.state.isInputMode){
+                    this.props.toggleIsInputMode(this.props.cardKey);
+                    setTimeout(()=> {
+                        this.refs.note.focus(); 
+                    });
+                }
+            });
     }
 
     toggleIsSaveDisabled () {
@@ -31,24 +37,24 @@ class ListCardForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        var card = {
-            listKey: this.props.listKey,
+        var note = {
+            cardKey: this.props.cardKey,
             text: this.refs.note.value
         };
-        this.cardsRef.push(card);
+        this.notesRef.push(note);
         this.refs.note.value = "";
         this.toggleIsSaveDisabled();
         this.props.toggleIsInputMode(null);
     }
 
-    handleCancel () {
-        this.toggleIsSaveDisabled();        
-        this.props.toggleIsInputMode(null);                
-    }
+    // handleCancel () {
+    //     this.toggleIsSaveDisabled();        
+    //     this.props.toggleIsInputMode(null);                
+    // }
 
-    componentWillReceiveProps = (nextProps) => {
-        this.setState({isInputMode: nextProps.isInputMode}); 
-    }
+    // componentWillReceiveProps = (nextProps) => {
+    //     this.setState({isInputMode: nextProps.isInputMode}); 
+    // }
 
     handleChange = e => {
         this.toggleIsSaveDisabled();
@@ -59,23 +65,23 @@ class ListCardForm extends Component {
             <div>
                 {!this.state.isInputMode ? 
                 <div>
-                    <p style={{textAlign: "right"}}>
+                    <p style={{textAlign: "left"}}>
                         <a href="#" onClick={() => this.toggleIsInputMode ()}>
-                            Add Card
+                            Add Note
                         </a>
                     </p>
                 </div>
                 :
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        <div className="cardform-group">
+                        <div className="noteform-group">
                             <textarea 
-                                className="cardform-control" 
+                                className="noteform-control" 
                                 ref="note" 
                                 onChange={this.handleChange} required>
                             </textarea>
                         </div>
-                        <div className="cardform-group">                                               
+                        <div className="noteform-group">                                               
                             <input 
                                 type="submit" 
                                 className="btn btn-primary" 
@@ -85,7 +91,7 @@ class ListCardForm extends Component {
                                 type="button" 
                                 className="btn btn-default" 
                                 value="Cancel" 
-                                onClick={this.handleCancel}/>                            
+                                onClick={this.toggleIsInputMode}/>                            
                         </div>
                     </form>
                 </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import firebase from "firebase/app"
+import ListPanel from "./ListPanel"
 import './board.css';
 
 class ListCard extends Component {
@@ -7,33 +8,33 @@ class ListCard extends Component {
     constructor (){
         super();
         this.state = {
-            cards: {},
+            notes: {},
         }
     }
 
     componentDidMount () {
-        this.cardsRef = firebase.database().ref("cards/")
+        this.notesRef = firebase.database().ref("notes/")
     }
 
-    handleDeleteCard = key => {
-        firebase.database().ref(`cards/${key}`).remove();
-        console.log("Successful delete card!");
-        console.log(this.state.cards);
+    handleDeleteNote = key => {
+        firebase.database().ref(`notes/${key}`).remove();
+        console.log("Successful delete note!");
+        console.log(this.state.notes);
     }
 
     handleOnDragStart = e => {
-        e.dataTransfer.setData('card', JSON.stringify(this.props.card));
+        e.dataTransfer.setData('note', JSON.stringify(this.props.note));
     }
 
     render () {
         return (
-            <div className="card" draggable="true" onDragStart={this.handleOnDragStart}>
-                <p>{this.props.card.text}</p>
+            <div className="note" draggable="true" onDragStart={this.handleOnDragStart}>
+                <p>{this.props.note.text}</p>
                 <div style={this.style}>
                     <button 
-                        className="delete-card" 
+                        className="delete-note" 
                         onClick={() => {
-                            this.handleDeleteCard(this.props.card.key);
+                            this.handleDeleteNote(this.props.note.key);
                         }}
                     >x</button>
                 </div>

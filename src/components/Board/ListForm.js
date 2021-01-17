@@ -13,7 +13,7 @@ class ListForm extends Component {
 
     componentDidMount () {
         this.NAME_MIN_LENGTH = 3;
-        this.listsRef = firebase.database().ref("lists/");
+        this.cardsRef = firebase.database().ref("cards/");
     }
 
     isNameValid () {
@@ -30,11 +30,11 @@ class ListForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        var list = {
+        var card = {
             boardKey: this.props.boardKey,
             name: this.refs.name.value
         };
-        this.listsRef.push(list);
+        this.cardsRef.push(card);
         this.refs.name.value = "";
         this.setState({
             name: "",
@@ -44,36 +44,34 @@ class ListForm extends Component {
 
     render () {
         return (
-            <div className="listform-container">
-                <div className="listform-panel-default">
-                    <div className="listform-panel-heading">
-                        {this.state.name.length > 0 ? this.state.name : 'List Name'}
-                    </div>            
-                    <div className="listform-body">                     
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="listform-group">
-                                <input 
-                                    type="text" 
-                                    className="listform-control" 
-                                    placeholder="New list name..." 
-                                    ref="name"
-                                    onChange={this.handleChange} />
-                            </div>
-                            <div className="listform-group">
-                                <input 
-                                    type="submit" 
-                                    className="btn btn-primary" 
-                                    value="Save" 
-                                    disabled={this.state.isSaveDisabled} 
-                                /> &nbsp;
-                                <input 
-                                    type="button" 
-                                    className="btn btn-default" 
-                                    value="Cancel"
-                                />
-                            </div>
-                        </form>
-                    </div>
+            <div className="cardform-container">
+                <div className="cardform-panel-heading">
+                    {this.state.name.length > 0 ? this.state.name : 'Card Name'}
+                </div>            
+                <div className="cardform-body">                     
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="cardform-group">
+                            <input 
+                                type="text" 
+                                className="cardform-control" 
+                                placeholder="New card name..." 
+                                ref="name"
+                                onChange={this.handleChange} />
+                        </div>
+                        <div className="cardform-group">
+                            <input 
+                                type="submit" 
+                                className="btn btn-primary" 
+                                value="Save" 
+                                disabled={this.state.isSaveDisabled} 
+                            /> &nbsp;
+                            <input 
+                                type="button" 
+                                className="btn btn-default" 
+                                value="Cancel"
+                            />
+                        </div>
+                    </form>
                 </div>
             </div>
         );

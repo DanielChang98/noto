@@ -15,7 +15,7 @@
     background-color: #D8F5FF;
     width: auto;
     min-width: 400px;
-    height: auto;
+    height: 350px;
     min-height: 350px;
     border-radius: 20px;
     padding: 20px;
@@ -30,15 +30,6 @@
     left: 0;
 }
 
-.list-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    min-height: 75vh;
-}
-
 .sidebar-btn{
     position: absolute;
     top: 85px;
@@ -48,33 +39,56 @@
 .cards-arrangement{
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-right: 5%;
     margin-left: 10%;
-    width: 90%;
     align-items: center;
     justify-content: center;
 }
 
-.list-container-2{
+.card-container-2{
     height: auto;
     min-height: 400px;
     min-width: 380px;
     border-radius: 20px;
     padding: 20px;
-    margin: 1%;
-    background-color: #CCF3FF;
+    margin: 2%;
+    
 }
 
-.list-body {
+.card-body {
     margin-top: 5%;
     margin-bottom: 5%;
 }
 
-.card{
+.note{
     width: 100%;
     min-height: 70px;
     padding: 20px;
     margin-top: 10px;
     border-radius: 15px;
+}
+
+.board-title-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.board-title{
+    font-size: 26pt;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px;
+    margin: 0 15px 0 0;
+}
+
+.board-description-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.board-description{
+    font-size: 22pt;
+    margin: 0 15px 0 0;
 }
