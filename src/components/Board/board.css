@@ -92,3 +92,8 @@
     font-size: 22pt;
     margin: 0 15px 0 0;
 }
+
+.cardform-container {
+    margin-left: 10%;
+    margin-bottom: 25px;
+}

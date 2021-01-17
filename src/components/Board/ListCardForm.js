@@ -47,14 +47,6 @@ class ListCardForm extends Component {
         this.props.toggleIsInputMode(null);
     }
 
-    // handleCancel () {
-    //     this.toggleIsSaveDisabled();        
-    //     this.props.toggleIsInputMode(null);                
-    // }
-
-    // componentWillReceiveProps = (nextProps) => {
-    //     this.setState({isInputMode: nextProps.isInputMode}); 
-    // }
 
     handleChange = e => {
         this.toggleIsSaveDisabled();
@@ -77,6 +69,7 @@ class ListCardForm extends Component {
                         <div className="noteform-group">
                             <textarea 
                                 className="noteform-control" 
+                                placeholder="Type something.."
                                 ref="note" 
                                 onChange={this.handleChange} required>
                             </textarea>

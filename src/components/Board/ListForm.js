@@ -7,6 +7,7 @@ class ListForm extends Component {
         super ();
         this.state = {
             name: "",
+            isInputMode: false,
             isSaveDisabled: true
         }
     }
@@ -18,15 +19,25 @@ class ListForm extends Component {
 
     isNameValid () {
         this.setState({
-            isSaveDisabled: (this.state.name.length < this.NAME_MIN_LENGTH)
+            isSaveDisabled: (this.refs.name.value.boardKeylength < this.NAME_MIN_LENGTH)
         });
     }
 
-    handleChange = e => {
-        this.setState({name: e.target.value});
-        this.isNameValid();  
-
+    toggleIsInputMode = e => {
+        this.setState({
+            isInputMode: !this.state.isInputMode},
+            () => {
+                if (this.state.isInputMode){
+                    setTimeout(()=> {
+                        this.refs.name.focus(); 
+                    });
+                }
+            });
     }
+
+    handleChange = e => {
+        this.isNameValid();
+    };
 
     handleSubmit = e => {
         e.preventDefault();
@@ -40,14 +51,24 @@ class ListForm extends Component {
             name: "",
             isSaveDisabled: true
         });
+        this.toggleIsInputMode();
+        this.isNameValid();
     }
+
+    
 
     render () {
         return (
-            <div className="cardform-container">
-                <div className="cardform-panel-heading">
-                    {this.state.name.length > 0 ? this.state.name : 'Card Name'}
-                </div>            
+            <div>
+                {!this.state.isInputMode ? 
+                <div>
+                    <p style={{textAlign: "left", fontSize: "18pt"}}>
+                        <a href="#" onClick={() => this.toggleIsInputMode()}>
+                            Add Card...
+                        </a>
+                    </p>
+                </div>
+                :           
                 <div className="cardform-body">                     
                     <form onSubmit={this.handleSubmit}>
                         <div className="cardform-group">
@@ -56,7 +77,7 @@ class ListForm extends Component {
                                 className="cardform-control" 
                                 placeholder="New card name..." 
                                 ref="name"
-                                onChange={this.handleChange} />
+                                onChange={this.handleChange} required/>
                         </div>
                         <div className="cardform-group">
                             <input 
@@ -69,10 +90,12 @@ class ListForm extends Component {
                                 type="button" 
                                 className="btn btn-default" 
                                 value="Cancel"
+                                onClick={this.toggleIsInputMode}
                             />
                         </div>
                     </form>
                 </div>
+                }
             </div>
         );
     }

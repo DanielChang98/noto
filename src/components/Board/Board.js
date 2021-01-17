@@ -146,7 +146,10 @@ class Board extends Component {
                         </DialogActions>
                 </Dialog>
             </div>
-            <ListForm boardKey={this.props.match.params.key} />
+            <div className="cardform-container">
+                <ListForm boardKey={this.props.match.params.key} />
+            </div>
+            
             <Footer/>
             </>
         );

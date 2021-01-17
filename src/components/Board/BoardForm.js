@@ -19,10 +19,6 @@ class BoardForm extends Component{
     toggleInputMode = e => {
         this.setState({isInputMode: !this.state.isInputMode}, function() {
             if (this.state.isInputMode) {
-                // setTimeout(function() {
-                //     this.refs.name.focus();
-                //     this.refs.description.focus();           
-                // }.bind(this));
                 setTimeout(()=> {
                     this.refs.name.focus();
                     this.refs.description.focus(); 
@@ -59,7 +55,6 @@ class BoardForm extends Component{
     render (){
         return (
             <div className="createBoardForm">
-            <div className="panel">
                 <div className="board-body">
                 {
                     !this.state.isInputMode ?
@@ -99,7 +94,6 @@ class BoardForm extends Component{
                     </form>
                 }
                 </div>
-            </div>
         </div>
         );
     }

@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import firebase from "firebase/app"
-import ListPanel from "./ListPanel"
 import './board.css';
 
 class ListCard extends Component {
