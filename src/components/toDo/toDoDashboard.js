@@ -9,8 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import firebase from "firebase/app";
-import {IconButton, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+import {Button, Dialog, DialogContent, DialogActions } from '@material-ui/core';
 
 function ToDoDashboard(){
     // Function to redirect to 'toDoList' page

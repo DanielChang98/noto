@@ -45,7 +45,7 @@ export default function Signup() {
       })
       .finally(() => {
         setLoading(false)
-        history.push('/')
+        history.push('/home')
       })
 
     setLoading(false)

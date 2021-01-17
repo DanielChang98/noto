@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
-.container{
-    /* height: 15vh; */
-    /* width: 24vh; */
-}
-
 .componentContainer{
     height: 9rem;
     width: 12rem;

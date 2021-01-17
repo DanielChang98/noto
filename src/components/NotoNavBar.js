@@ -6,7 +6,7 @@ function NotoNavBar()
 {
     return (
     <div className="nav-container">
-            <div className="align-row">
+            <div className="align-row1">
                 <div className = "nav-sub1">
                     <img src={logo} alt="Logo"/>
                     <p>Noto</p>
