@@ -92,10 +92,21 @@
 .time {
     font-size: 9rem;
     font-weight: 600;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 1.5rem;
     color: #fff;
     display: block;
     width: 100%;
     text-align: center;
+  }
+
+  .time-desc-container{
+      text-align: center;
+      padding-bottom: 1rem;
+  }
+
+  .start-work{
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    overflow-wrap: break-word;
   }

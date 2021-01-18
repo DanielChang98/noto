@@ -81,6 +81,9 @@ export default class TimerPage extends React.Component{
     }
 
     onClick() {
+        let audio = new Audio('/song/button.mp3');
+        audio.play();
+
         if( false === this.state.play){
             this.play();
         }
@@ -121,7 +124,7 @@ export default class TimerPage extends React.Component{
     setTimeForCode(){
         this.setState({
             backgroundColor: 'rgb(240, 91, 86)',
-            type: 'Code',
+            type: 'Work',
             play: false
         });
 
@@ -167,7 +170,8 @@ export default class TimerPage extends React.Component{
           timeType: defaultTime, 
           title: this.getTitle(defaultTime), 
           play: false,
-          estimated: false
+          estimated: false,
+          type: 'Work'
         });
     }
     
@@ -189,7 +193,6 @@ export default class TimerPage extends React.Component{
     alert() {
       console.log("hello");
       let audio = new Audio('/song/alarm.mp3');
-      console.log(audio);
       audio.play();
       setTimeout(()=> audio.pause(), 1400);
     }
@@ -219,6 +222,9 @@ export default class TimerPage extends React.Component{
                             </div>
                             <div className={"timerCountdown"}>
                                 <span className="time">{this.format(this.state.time)}</span>
+                            </div>
+                            <div className="time-desc-container">
+                                <p className="start-work">Time for {this.state.type}!</p>
                             </div>
                             <div>
                                 <ProgressBar now={this.state.progress}/>
