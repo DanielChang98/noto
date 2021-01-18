@@ -42,7 +42,7 @@ export default function Signup() {
     //run all promises
     Promise.all(promises)
       .then(() => {
-        history.push("/")  //return to dashboard
+        history.push("/home")  //return to dashboard
       })
       .catch(() => {
         setError("Failed to update account")
