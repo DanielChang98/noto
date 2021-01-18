@@ -12,8 +12,8 @@ import myList from "./toDo/myList"
 import EditProfile from "./EditProfile"
 import Home from './HomePage'
 import Noto from './NotoHome'
-import Timer from './Timer'
-import TimerReport from './TimerReport'
+import Timer from './Timer/Timer'
+import TimerReport from './Timer/TimerReport'
 import BoardDashBoard from './Board/BoardDashboard'
 import Board from './Board/Board'
 

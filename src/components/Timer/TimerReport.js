@@ -2,10 +2,12 @@ import React from "react"
 import ReportComponent from './ReportComponent'
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import firebase from "../firebase"
+import NavBar from '../NavBar'
+import Footer from '../Footer'
+import firebase from "../../firebase"
 import { VictoryBar, VictoryChart, VictoryAxis  } from 'victory';
 
-import '../report.css'
+import './report.css'
 
 var info = [];
 
@@ -78,6 +80,7 @@ export default class TimerReport extends React.Component{
     render(){
         return (
             <div>
+                <NavBar></NavBar>
                 <div className="bar">
                     <div className="barInnerContainer">
                         <ReportComponent icon="AccessTimeIcon" label={this.state.hoursFocused} bottomLabel="hours focused"></ReportComponent>
@@ -102,6 +105,7 @@ export default class TimerReport extends React.Component{
                         />
                     </VictoryChart>
                 </div>
+                <Footer></Footer>
             </div>
         );
     }

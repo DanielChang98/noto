@@ -1,6 +1,8 @@
 .container-timer{
     display: flex;
     flex-direction: column;
+    background-color: rgb(240, 91, 86);
+    transition: background-color 0.5s ease-in-out 0s;
 }
 
 .timerContainer{
@@ -29,7 +31,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #79B6FD;
+    background-color:rgba(255, 255, 255, 0.1);
     padding-top: 2rem;
     padding-bottom: 2rem;
     padding-left: 3rem;
@@ -70,58 +72,21 @@
 }
 
 .startButton{
-    background-color: #ABE9CD;
-    border: #ABE9CD;
+    background-color: white;
     border-radius: 1rem;
+    outline: none;
+    border: none;
     cursor: pointer;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     font-size: 2rem;
-    color: #FFFFFF;
-    outline: none;
-    box-shadow: 0 9px #999;
-
-}
-
-.stopButton{
-    background-color: #DD7554;
-    border: #DD7554;
-    border-radius: 1rem;
-    cursor: pointer;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    font-size: 2rem;
-    color: #FFFFFF;
-    outline: none;
-    box-shadow: 0 9px #999;
-}
-
-.stopButton:active, .stopButton:focus {
-    outline:0;
-    opacity: .5;
-    background-color: #DD7554;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-
-.startButton:active, .startButton:focus {
-    outline:0;
-    opacity: .5;
-    background-color: #95CAB2;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-
-.startButton:active, .startButton:focus {
-    outline:0;
-    opacity: .5;
-    background-color: #95CAB2;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+    color: rgb(240, 91, 86);
+    box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+    width: 200px;
+    font-weight: bold;
+    transition: color 0.5s ease-in-out 0s;
 }
 
 .time {

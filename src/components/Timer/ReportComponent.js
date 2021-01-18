@@ -3,7 +3,7 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 
-import '../report.css'
+import './report.css'
 
 export default function reportComponent({icon, label, bottomLabel}){
 
