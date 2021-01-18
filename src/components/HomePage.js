@@ -14,9 +14,10 @@ sessionStorage.setItem("userID", userID)
         <>
             <NavBar/>
 
-            <div>
+            <div className="home-page-container">
                 <Top></Top>
             </div>
+
             <Footer/>
         </>
     );

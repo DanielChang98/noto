@@ -336,3 +336,10 @@
     cursor: pointer;
     transition: 0.3s background-color ease-in-out;
 }
+
+.home-page-container{
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, #79B6FD, #BAE9F8);
+}
