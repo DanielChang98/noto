@@ -27,12 +27,7 @@ class Board extends Component {
     componentDidMount () {
         const myCard = firebase.database().ref("cards/");
         myCard.orderByChild("boardKey").equalTo(this.props.match.params.key).on("value", snapshot => {
-            const myCardFromDatabase = snapshot.val();
-            if (myCardFromDatabase === null) {
-                console.log ("Card at our database is null");  
-            } else {
-                this.setState({cards: snapshot.val() || {}}); 
-            }
+            this.setState({cards: snapshot.val() || {}}); 
         });
     }
 
@@ -68,15 +63,19 @@ class Board extends Component {
     };
 
     render () {
+        var counter = 0;
         var cards = Object.keys(this.state.cards).map(key => {
+            counter = counter + 1;
             var isInputMode = (this.state.inputModeCardKey === key) ? true : false;           
             var card = this.state.cards[key];
             card.key = key;
             return <ListPanel 
+                    counter={counter}
                     key={key} 
                     card={card} 
                     isInputMode={isInputMode} 
-                    toggleIsInputMode={(key) => this.toggleIsInputMode(key)}/>
+                    toggleIsInputMode={(key) => this.toggleIsInputMode(key)}
+                    />
         });
 
         const boardDetails = JSON.parse(sessionStorage.getItem("board"));
@@ -84,11 +83,11 @@ class Board extends Component {
         return (
             <>
             <NavBar/>
-            <div className = "sidebar-btn">
+            {/* <div className = "sidebar-btn">
                     <IconButton>
                         <DehazeIcon/>
                     </IconButton>
-            </div>
+            </div> */}
             <div className="board-title-container">
                 <p className="board-title">
                     {this.state.updateBoardTitle}
@@ -119,7 +118,6 @@ class Board extends Component {
                             fullWidth
                             name="updateBoardTitle"
                             defaultValue={this.state.updateBoardTitle}
-                            // value={updateBoardTitle}
                             onChange={e => this.setState({updateBoardTitle: e.target.value})}
                         />
                         <TextField
@@ -132,7 +130,6 @@ class Board extends Component {
                             fullWidth
                             name="updateBoardDescription"
                             defaultValue={this.state.updateBoardDescription}
-                            // value={updateBoardDescription}
                             onChange={e => this.setState({updateBoardDescription: e.target.value})}
                         />
                     </DialogContent>
