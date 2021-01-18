@@ -3,6 +3,9 @@ import firebase from "firebase/app"
 import ListCard from "./ListCard"
 import ListCardForm from "./ListCardForm"
 import './board.css';
+import { Button, Menu, MenuItem, Dialog, DialogContent, DialogActions, TextField} from '@material-ui/core';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import PropTypes from 'prop-types';
 
 class ListPanel extends Component {
 
@@ -10,20 +13,17 @@ class ListPanel extends Component {
         super();
         this.state = {
             notes: {},
-            // i: 0
+            anchorEl: null,
+            dialogOpen: false,
+            updateCard: "",
+            cardBoardKey: null,
         }
     }
 
     componentDidMount() {
         const myNote = firebase.database().ref("notes/")
-
         myNote.orderByChild("cardKey").equalTo(this.props.card.key).on("value", snapshot => {
-            const myNoteFromDatabase = snapshot.val();
-            if (myNoteFromDatabase === null) {
-                console.log("Note at our database is null")
-            } else {
                 this.setState({ notes: snapshot.val() || {} });
-            }
         });
     }
 
@@ -33,6 +33,7 @@ class ListPanel extends Component {
 
     onDragLeave = (e) => {
         e.preventDefault();
+        console.log(e.currenTarget);
     }
 
     onDrop = (e) => {
@@ -51,6 +52,45 @@ class ListPanel extends Component {
         console.log(this.state.notes);
     }
 
+    handleClose = () => {
+        this.setState({anchorEl:null});
+    }
+
+    removeCard = (thecardKey, mynotes) => {
+        for (let i = 0; i < mynotes.length; i++){
+            this.removeNote(mynotes[i].key);
+        }
+        firebase.database().ref(`cards/${thecardKey}`).remove();
+        console.log("Success delete card!")
+        console.log("cardkey", thecardKey)
+    }
+
+    removeNote = (key) => {
+        firebase.database().ref(`notes/${key}`).remove();
+    }
+
+    openUpdateDialog = (theCard) => {
+        this.setState({
+            anchorEl: null,
+            dialogOpen: true,
+            updateCard: theCard.name,
+            cardBoardKey: theCard.boardKey,
+        });
+    }
+
+    editCard = (theCard) => {
+        firebase.database().ref("cards/"+theCard.key).update({
+            name: this.state.updateCard,
+            boardKey: theCard.boardKey,
+        });
+        this.setState({dialogOpen: false});
+    }
+
+    handleCloseDialog = () => {
+        this.setState({
+            dialogOpen: false,
+        });
+    }
 
     render() {
 
@@ -61,7 +101,7 @@ class ListPanel extends Component {
                 key={key}
                 note={note}
                 style={{ position: "absolute", right: "5", top: "0" }}
-            // propTypes={{card: React.PropTypes.object.isRequired}}
+                propTypes={{card: PropTypes.object.isRequired}}
             />
         });
 
@@ -73,16 +113,39 @@ class ListPanel extends Component {
 
         return (
             <div
-                // style={{ backgroundColor: randomColor }}
+                style={{ backgroundColor: "#CCF3FF" }}
                 className="card-container-2"
                 onDragOver={(e) => this.onDragOver(e)}
                 onDragLeave={(e) => this.onDragLeave(e)}
                 onDrop={(e) => { this.onDrop(e) }}
             >
                 <div className="card-panel-default">
-                    <h3 className="card-heading">
-                        {this.props.card.name}
-                    </h3>
+                    <div className="card-heading">
+                        <h3 className="card-name">
+                            {this.props.card.name}
+                        </h3>
+                    </div>
+                    <Button
+                            aria-controls="simple-menu"
+                            aria-haspopup="true"
+                            onClick = {(e) => this.setState({anchorEl: e.currentTarget})}
+                        >
+                            <MoreVertIcon className = "cardMenu"/>
+                        </Button>
+                        <Menu
+                            id="simple-menu"
+                            anchorEl={this.state.anchorEl}
+                            keepMounted
+                            open={Boolean(this.state.anchorEl)}
+                            onClose={this.handleClose}
+                        >
+                            <MenuItem
+                                onClick = {() => {this.openUpdateDialog(this.props.card)}}
+                                >Edit</MenuItem>
+                            <MenuItem 
+                                onClick = {(thecardKey, mynotes) => this.removeCard(this.props.card.key, notes)}
+                                >Delete</MenuItem>
+                        </Menu>
                     <div className="card-body">
                         {notes}
                     </div>
@@ -94,6 +157,30 @@ class ListPanel extends Component {
                         />
                     </div>
                 </div>
+                <Dialog open={this.state.dialogOpen} onClose={this.handleCloseDialog}>
+                    <DialogContent>
+                        <TextField
+                            autoFocus
+                            required
+                            margin="normal"
+                            label="Edit Card Name"
+                            type="text"
+                            variant="outlined"
+                            fullWidth
+                            name="updateNote"
+                            defaultValue={this.state.updateCard}
+                            onChange={e => this.setState({updateCard: e.target.value})}
+                        />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleCloseDialog} color="primary">
+                            Cancel
+                        </Button>
+                        <Button onClick={() => this.editCard(this.props.card)} color="primary">
+                            Save
+                        </Button>
+                        </DialogActions>
+                </Dialog>
             </div>
         );
     }

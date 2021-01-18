@@ -62,11 +62,12 @@
 }
 
 .note{
-    width: 100%;
+    width: 300px;
     min-height: 70px;
     padding: 20px;
     margin-top: 10px;
     border-radius: 15px;
+    background-color: white;
 }
 
 .board-title-container{
