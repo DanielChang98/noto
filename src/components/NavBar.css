@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .dashboard-container{
     height: auto;
     min-height: 90vh;
@@ -128,4 +129,147 @@ ul{
 
 .buttons-register-login .buttons-register-login-holder li a:hover{
     color: #19467A;
+=======
+.dashboard-container{
+    height: auto;
+    min-height: 90vh;
+    width: 100%;
+}
+
+.navi-bar{
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(180deg, #D8F5FF 0%, rgba(255, 255, 255, 0) 100%), #C1DEFF;
+    box-shadow: 0px 4px 4px #E5E5E5;
+    margin-top: -30px;
+}
+
+.nav-container{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.navbar{
+    background-color: white;
+    align-content: center;
+}
+
+.nav-sub1{
+    font-weight: 700;
+    font-size: 28px;
+    font-family: 'Roboto Slab', serif;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding-left: 20px;
+}
+
+.nav-sub1 p{
+    color: #19467A;
+}
+
+.align-row p{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.align-row1 {
+    justify-content: space-between;
+}
+
+.buttons-navbar{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-navbar-holder{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons-navbar ul{
+    margin-left: 50px;
+    list-style-type: none;
+    display: flex;
+}
+
+.buttons-register-login ul{
+    list-style-type: none;
+}
+
+ul{
+    display: flex;
+    justify-content:center;
+}
+
+.buttons-navbar ul li:last-child {
+    margin-top: -10px;
+}
+
+.buttons-navbar .buttons-navbar-holder li a{
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    color: #76B4FF;
+    font-weight: 700;
+    margin-top: -80px;
+    text-decoration: none;
+}
+
+.buttons-navbar .buttons-navbar-holder li a:hover{
+    color: #19467A;
+}
+
+.nav-sub1 img{
+    width: auto;
+    height: 60px;
+    display: flex;
+    margin: 10px;
+}
+
+.nav-container li {
+    padding: 25px 30px;
+}
+
+.buttons-register-login{
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+}
+
+.buttons-register-login-holder{
+    justify-content: flex-end;
+    display: flex;
+    margin-top: -5%;
+}
+
+.buttons-register-login .buttons-register-login-holder li a{
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    font-family: "Roboto", sans-serif;
+    color: #76B4FF;
+    font-weight: 700;
+    margin-top: -80px;
+    text-decoration: none;
+}
+
+.buttons-register-login .buttons-register-login-holder li a:hover{
+    color: #19467A;
+}
+
+/*Container*/
+.edit-profile-container{
+    width: auto;
+    height: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+>>>>>>> e88a7b6b0b2a4b891f123cb44a9dc18619ce0915
 }
