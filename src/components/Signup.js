@@ -19,7 +19,7 @@ export default function Signup() {
   async function handleSubmit(e) {
     e.preventDefault()  //prevent form from being refreshed
 
-    if(passwordRef.current.value.length<6){
+    if(passwordRef.current.value.length <6 ){
       return setError("Please use password with at least 6 characters.")
     }
 
