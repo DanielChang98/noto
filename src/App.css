@@ -1,24 +1,4 @@
 * > body {
     margin: 0;
+    padding: 0;
   }
-
-/*navbar*/
-#navbar {
-    top:0; left:0; right:0;
-    background-color: #C1DEFF;
-    z-index: 100;
-    color: black;
-    box-shadow: none;
-}
-
-/*aligning navbar elements*/
-#navflex {
-    display: flex;
-    justify-content: space-between;
-}
-
-/*flex direction of nav link lists*/
-#navlink{
-    display: flex;
-    flex-direction: row;
-}

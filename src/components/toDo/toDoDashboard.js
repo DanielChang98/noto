@@ -9,8 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import firebase from "firebase/app";
-import {IconButton, Button, Dialog, DialogContent, DialogActions } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+import {Button, Dialog, DialogContent, DialogActions } from '@material-ui/core';
 
 function ToDoDashboard(){
     // Function to redirect to 'toDoList' page
@@ -65,7 +64,6 @@ function ToDoDashboard(){
 
       var listKey = firebase.database().ref().child('toDoList').push().key;
       firebase.database().ref('toDoList/' + userID + '/' + listKey).set({
-        listID: listKey,
         title: title,
         tag : tag,
         colour: colour
@@ -76,9 +74,10 @@ function ToDoDashboard(){
       });
     }
 
-    const viewList = async e =>
+    const viewList = (e) =>
     {
-      e.preventDefault();
+      const todolist = JSON.parse(sessionStorage.getItem('todolist'));
+      console.log("LIST Name: "+todolist.title)
       window.location.href = `/${"to-do-list"}`
     }
 
@@ -150,17 +149,14 @@ function ToDoDashboard(){
           <div className="todolist-card-container" >
           {lists.map((todolist) => (
             <React.Fragment key={todolist.id}>
-              
-              <form method = "post" onSubmit ={viewList}>
-                <button onClick={sessionStorage.setItem('todolist',JSON.stringify(todolist))} type="submit" className="todolist-card" style={{backgroundColor: todolist.colour}}>
-                  <IconButton type="reset" className="deleteList" onClick={() => openDeleteDialog(todolist)}>
-                    <CloseIcon/>
-                  </IconButton>
-                  <p>{todolist.title}</p>
-                  <p className="list-tag">{todolist.tag}</p>
-                </button>
-              </form>
-              
+              <button onClick={() => viewList(sessionStorage.setItem('todolist',JSON.stringify(todolist)))} className="todolist-card" style={{backgroundColor: todolist.colour}}>
+                
+                <p>{todolist.title}</p>
+                <p className="list-tag">{todolist.tag}</p>
+              </button>
+              <button className="deleteList" onClick={() => openDeleteDialog(todolist)} >
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
             </React.Fragment>
           ))}
           </div>

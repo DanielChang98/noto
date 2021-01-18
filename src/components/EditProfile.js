@@ -1,4 +1,4 @@
-//edit profile - name or password
+//edit profile - password
 
 import React, { useRef, useState } from "react"
 import { Container, Form, Button, Card, Alert } from "react-bootstrap"
@@ -8,10 +8,9 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 
 export default function EditProfile() {
-  const nameRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
-  const { currentUser, updatePassword, updateProfile } = useAuth()
+  const { updatePassword } = useAuth()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
@@ -29,18 +28,15 @@ export default function EditProfile() {
     setLoading(true)
     setError("")
 
-    //udpdate name and password
-    if (nameRef.current.value !== currentUser.displayName) {
-      promises.push(updateProfile(nameRef.current.value))
-    }
-    if (passwordRef.current.value) {
+    //udpdate password
+        if (passwordRef.current.value) {
       promises.push(updatePassword(passwordRef.current.value))
     }
 
     //run all promises
     Promise.all(promises)
       .then(() => {
-        history.push("/")  //return to dashboard
+        history.push("/home")  //return to dashboard
       })
       .catch(() => {
         setError("Failed to update account")
@@ -64,21 +60,13 @@ export default function EditProfile() {
               {error && <Alert variant="danger">{error}</Alert>}
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
-                <Form.Group id="name">
-                  <Form.Label>Name</Form.Label><br />
-                  <Form.Control
-                    type="text"
-                    ref={nameRef}
-                    required
-                    defaultValue={currentUser.displayName}
-                  />
-                </Form.Group>
                 <Form.Group id="password">
                   <Form.Label>Password</Form.Label><br />
                   <Form.Control
                     type="password"
-                    ref={passwordRef}
-                    placeholder="Leave blank to remain unchanged"
+                    ref={passwordRef}                    
+                    required
+                    placeholder="Enter your new password"
                   />
                 </Form.Group>
                 <Form.Group id="password-confirm">
@@ -86,7 +74,8 @@ export default function EditProfile() {
                   <Form.Control
                     type="password"
                     ref={passwordConfirmRef}
-                    placeholder="Leave blank to remain unchanged"
+                    required
+                    placeholder="Repeat your new password"
                   />
                 </Form.Group>
                 <Button disabled={loading} className="w-100" type="submit">

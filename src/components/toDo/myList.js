@@ -13,6 +13,7 @@ function myList() {
         <NavBar/>
             <div className="mylist-container">
             <div className="mylist" style={{backgroundColor: todolist.colour}}>
+                <h3>{todolist.title}</h3>
                 <ToDoForm/>
                 <div className="todolist-container">
                     <ToDoList/>

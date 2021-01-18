@@ -1,0 +1,99 @@
+.kanbanboard-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    height: auto;
+    min-height: 75vh;
+}
+
+.kanbanboard{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: #D8F5FF;
+    width: auto;
+    min-width: 400px;
+    height: 350px;
+    min-height: 350px;
+    border-radius: 20px;
+    padding: 20px;
+    align-self: center;
+    margin-bottom: 30px;
+}
+
+/* Fail to cue the item */
+.kanbanboard.boardform-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.sidebar-btn{
+    position: absolute;
+    top: 85px;
+    left: 0;
+}
+
+.cards-arrangement{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-right: 5%;
+    margin-left: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-container-2{
+    height: auto;
+    min-height: 400px;
+    min-width: 380px;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 2%;
+    
+}
+
+.card-body {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.note{
+    width: 100%;
+    min-height: 70px;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+.board-title-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.board-title{
+    font-size: 26pt;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px;
+    margin: 0 15px 0 0;
+}
+
+.board-description-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+.board-description{
+    font-size: 22pt;
+    margin: 0 15px 0 0;
+}
+
+.cardform-container {
+    margin-left: 10%;
+    margin-bottom: 25px;
+}

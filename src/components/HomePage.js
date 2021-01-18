@@ -1,7 +1,8 @@
+//page after user logs in
+
 import React from "react"
 import firebase from "firebase/app";
 import Top from './HomePageComponent/top-half'
-import Bottom from './HomePageComponent/btm-half'
 import NavBar from './NavBar'
 import Footer from './Footer'
 
@@ -15,9 +16,6 @@ sessionStorage.setItem("userID", userID)
 
             <div>
                 <Top></Top>
-            </div>
-            <div>
-                <Bottom></Bottom>
             </div>
             <Footer/>
         </>

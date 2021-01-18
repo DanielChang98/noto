@@ -15,7 +15,7 @@ function NavBar()
     async function handleLogout() {
         try {
           await logout()
-          history.push("/login")   //navigate to login page
+          history.push("/")   //navigate to noto page
         } catch {
           console.log("Failed to log out")
         }
@@ -31,9 +31,9 @@ function NavBar()
                 <div className="buttons-navbar">
                     <div className="buttons-navbar-holder">
                         <ul>
-                            <li><a href="/">Dashboard</a></li>
+                            <li><a href="/home">Dashboard</a></li>
                             <li><a href="/to-do-dashboard">Tasks</a></li>
-                            <li><a href="/">Board</a></li>
+                            <li><a href="/board-dashboard">Board</a></li>
                             <li><a href="/timer">Timer</a></li>
                             <li><a href="/edit-profile">Account</a></li>
                             <li>

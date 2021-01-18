@@ -20,7 +20,6 @@ function ToDoList() {
           id: item,
           title: items[item].title,
           status: items[item].status,
-          listID: todolist.id
         });
       }
       setTodos(newState)
