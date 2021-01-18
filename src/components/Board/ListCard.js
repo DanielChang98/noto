@@ -64,6 +64,7 @@ class ListCard extends Component {
     render () {
         return (
             <div className="note" draggable="true" onDragStart={this.handleOnDragStart}>
+                <div className="note-container">
                 <p>{this.props.note.text}</p>
                 <div>
                 <IconButton
@@ -81,6 +82,7 @@ class ListCard extends Component {
                     onClose={this.handleClose}
                 >
                     <MenuItem 
+                        color="red"
                         onClick = {() => {this.openUpdateDialog(this.props.note)}}
                         >Edit</MenuItem>
                     <MenuItem 
@@ -112,6 +114,7 @@ class ListCard extends Component {
                         </Button>
                         </DialogActions>
                 </Dialog>
+                </div>
             </div>
 
         );

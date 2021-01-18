@@ -17,14 +17,10 @@ class BoardDashboard extends Component{
   }
 
   componentDidMount() {
-    const myBoard = firebase.database().ref("boards/");
+    const userID = sessionStorage.getItem("userID");
+    const myBoard = firebase.database().ref("boards/"+userID);
     myBoard.on("value", snapshot => {
-      const myBoardFromDatabase = snapshot.val();
-      if (myBoardFromDatabase === null) {
-        console.log("Board at our firebase is null");
-      } else {
         this.setState({boards: snapshot.val() || {}});
-      }
       });
     }
 

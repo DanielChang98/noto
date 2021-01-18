@@ -62,7 +62,6 @@ class ListPanel extends Component {
         }
         firebase.database().ref(`cards/${thecardKey}`).remove();
         console.log("Success delete card!")
-        console.log("cardkey", thecardKey)
     }
 
     removeNote = (key) => {
@@ -92,6 +91,7 @@ class ListPanel extends Component {
         });
     }
 
+
     render() {
 
         var notes = Object.keys(this.state.notes).map(key => {
@@ -100,20 +100,12 @@ class ListPanel extends Component {
             return <ListCard
                 key={key}
                 note={note}
-                style={{ position: "absolute", right: "5", top: "0" }}
                 propTypes={{card: PropTypes.object.isRequired}}
             />
         });
-
-        // const randomList = ["#CCF3FF", "#E6CDFF", "#C1DEFF", "#E3FFF3", "#FFF3CA", "#FFDACE"]
-        // const randomColor = randomList[this.state.i];
-        // var temp = this.state.i;
-        // temp = (temp + 1) % 6;
-        // this.setState({ i: temp });
-
+        
         return (
             <div
-                style={{ backgroundColor: "#CCF3FF" }}
                 className="card-container-2"
                 onDragOver={(e) => this.onDragOver(e)}
                 onDragLeave={(e) => this.onDragLeave(e)}
@@ -124,14 +116,15 @@ class ListPanel extends Component {
                         <h3 className="card-name">
                             {this.props.card.name}
                         </h3>
-                    </div>
-                    <Button
+                        <Button
+                            sizeSmall
                             aria-controls="simple-menu"
                             aria-haspopup="true"
                             onClick = {(e) => this.setState({anchorEl: e.currentTarget})}
                         >
                             <MoreVertIcon className = "cardMenu"/>
                         </Button>
+                    </div>
                         <Menu
                             id="simple-menu"
                             anchorEl={this.state.anchorEl}
@@ -143,6 +136,7 @@ class ListPanel extends Component {
                                 onClick = {() => {this.openUpdateDialog(this.props.card)}}
                                 >Edit</MenuItem>
                             <MenuItem 
+                                color="red"
                                 onClick = {(thecardKey, mynotes) => this.removeCard(this.props.card.key, notes)}
                                 >Delete</MenuItem>
                         </Menu>

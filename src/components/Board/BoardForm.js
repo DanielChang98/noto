@@ -12,8 +12,9 @@ class BoardForm extends Component{
         }
     }
     componentDidMount() {
+        const userID = sessionStorage.getItem("userID");
         this.MIN_LENGTH = 3;
-        this.boardsRef = firebase.database().ref("boards/");
+        this.boardsRef = firebase.database().ref("boards/"+userID);
     }
 
     toggleInputMode = e => {
