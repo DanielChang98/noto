@@ -11,7 +11,7 @@ export default function Signup() {
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const { signup} = useAuth()
-  const [error, setError] = useState("")
+  const [error, setError, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
@@ -48,14 +48,14 @@ export default function Signup() {
     //run all promises
     Promise.all(promises)
       .then(() => {
-        history.push("/home")  //return to dashboard
+        setMessage("Account created successfully. Log in to continue.")
       })
       .catch(() => {
         setError("Failed to update account")
       })
       .finally(() => {
         setLoading(false)
-        history.push('/home')
+        //history.push('/')
       })
 
     setLoading(false)
@@ -72,6 +72,7 @@ export default function Signup() {
             <Card.Body>
               <h2 className="text-center mb-4">Sign Up</h2>
               {error && <Alert variant="danger">{error}</Alert>}
+              {message && <Alert variant="success">{message}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
                   <Form.Control type="email" ref={emailRef} placeholder="Enter your email" required />
