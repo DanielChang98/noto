@@ -1,4 +1,3 @@
-import React from "react"
 import firebase from "../firebase"
 
 const array = [
@@ -27,8 +26,8 @@ export default function FirebaseInit(){
                     isExist=false;
                 }
             });
-            if(isExist==true){
-                if(value=="hours"){
+            if(isExist===true){
+                if(value==="hours"){
                     refDB.child(id).set(
                         {
                             [day]: {
@@ -38,7 +37,7 @@ export default function FirebaseInit(){
                         }
                     );
                 }
-                else if(value=="userTimerReport"){
+                else if(value==="userTimerReport"){
                     refDB.child(id).set(
                         {
                             hoursFocused: 0,

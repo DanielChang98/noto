@@ -1,6 +1,8 @@
 //login page
 
 import React, { useRef, useState } from "react"
+import FirebaseLogin from '../Firebase/LoginFirebaseInit'
+import FirebaseInit from '../contexts/FirebaseInit'
 import { Container, Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
@@ -23,6 +25,7 @@ export default function Login() {
       setLoading(true)  //prevent form from being submitted multiple times
       //await - wait for login to finish
       await login(emailRef.current.value, passwordRef.current.value)
+      FirebaseLogin();
       history.push("/home") //navigate user to dashboard
     } catch {
       setError("Failed to log in")
