@@ -127,7 +127,12 @@ class Board extends Component {
         return (
             <div>
             <NavBar/>
-            <div className = "board-container">            
+            <div className = "my-board-container">            
+            {/* <div className = "sidebar-btn">
+                    <IconButton>
+                        <DehazeIcon/>
+                    </IconButton>
+            </div> */}
             <div className="board-title-container">
                 <p className="board-title">
                     {this.state.updateBoardTitle}
@@ -158,7 +163,9 @@ class Board extends Component {
                 </div>
             </div>
 
-            <ListForm boardKey={this.props.match.params.key} />
+            <div className="cardform-container">
+                <ListForm boardKey={this.props.match.params.key} />
+            </div>
 
             <div className = "cards-arrangement">
                 {cards}

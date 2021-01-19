@@ -143,11 +143,13 @@ class ListPanel extends Component {
                     <div className="card-body">
                         {notes}
                     </div>
-                    <ListCardForm
-                        cardKey={this.props.card.key}
-                        isInputMode={this.props.isInputMode}
-                        toggleIsInputMode={this.props.toggleIsInputMode}
-                    />
+                    <div className="card-footer">
+                        <ListCardForm
+                            cardKey={this.props.card.key}
+                            isInputMode={this.props.isInputMode}
+                            toggleIsInputMode={this.props.toggleIsInputMode}
+                        />
+                    </div>
                 </div>
                 <Dialog open={this.state.dialogOpen} onClose={this.handleCloseDialog}>
                     <DialogContent>
