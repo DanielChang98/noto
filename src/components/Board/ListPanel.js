@@ -1,11 +1,11 @@
 import React, { Component } from "react"
 import firebase from "firebase/app"
-import ListCard from "./ListCard"
-import ListCardForm from "./ListCardForm"
-import './board.css';
 import { Button, Menu, MenuItem, Dialog, DialogContent, DialogActions, TextField} from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import PropTypes from 'prop-types';
+import ListCard from "./ListCard"
+import ListCardForm from "./ListCardForm"
+import './board.css';
 
 class ListPanel extends Component {
 
