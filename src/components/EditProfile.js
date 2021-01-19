@@ -11,7 +11,7 @@ export default function EditProfile() {
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const { updatePassword } = useAuth()
-  const [error, setError] = useState("")
+  const [error, setError, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
@@ -28,15 +28,15 @@ export default function EditProfile() {
     setLoading(true)
     setError("")
 
-    //udpdate password
-        if (passwordRef.current.value) {
+    //update password
+    if (passwordRef.current.value) {
       promises.push(updatePassword(passwordRef.current.value))
     }
 
     //run all promises
     Promise.all(promises)
       .then(() => {
-        history.push("/home")  //return to dashboard
+        setMessage("Password changed") //message for successfully change password
       })
       .catch(() => {
         setError("Failed to update account")
@@ -54,11 +54,11 @@ export default function EditProfile() {
         style={{ minHeight: "100vh" }}
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
-        <Card className="w-100 mt-2 p-4">
+        <Card className="w-100 mt-1 p-4">
             <Card.Body>
               <h2 className="text-center mb-4">Edit Profile</h2>
               {error && <Alert variant="danger">{error}</Alert>}
-              {error && <Alert variant="danger">{error}</Alert>}
+              {message && <Alert variant="success">{message}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="password">
                   <Form.Label>Password</Form.Label><br />
