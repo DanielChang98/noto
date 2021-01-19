@@ -23,8 +23,7 @@ export default function Login() {
     try {
       setError("")  //reset error message
       setLoading(true)  //prevent form from being submitted multiple times
-      //await - wait for login to finish
-      await login(emailRef.current.value, passwordRef.current.value)
+      await login(emailRef.current.value, passwordRef.current.value) //await - wait for login to finish
       FirebaseLogin();
       history.push("/home") //navigate user to dashboard
     } catch {

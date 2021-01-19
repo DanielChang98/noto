@@ -7,9 +7,9 @@ import PrivateRoute from "./PrivateRoute" //to prevent unauthorised access of pa
 import Signup from "./Signup"
 import Login from "./Login"
 import ForgotPassword from "./ForgotPassword"
+import EditProfile from "./EditProfile"
 import ToDoDashboard from "./toDo/toDoDashboard"
 import myList from "./toDo/myList"
-import EditProfile from "./EditProfile"
 import Home from './HomePage'
 import Noto from './NotoHome'
 import Timer from './Timer/Timer'

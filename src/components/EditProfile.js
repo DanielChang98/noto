@@ -3,7 +3,6 @@
 import React, { useRef, useState } from "react"
 import { Container, Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
-import { useHistory } from "react-router-dom"
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 
@@ -12,8 +11,8 @@ export default function EditProfile() {
   const passwordConfirmRef = useRef()
   const { updatePassword } = useAuth()
   const [error, setError] = useState("")
+  const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
-  const history = useHistory()
 
   //function to handle submitted update profile form
   function handleSubmit(e) {
@@ -27,6 +26,7 @@ export default function EditProfile() {
     const promises = []
     setLoading(true)
     setError("")
+    setMessage("")
 
     //update password
     if (passwordRef.current.value) {
@@ -36,7 +36,7 @@ export default function EditProfile() {
     //run all promises
     Promise.all(promises)
       .then(() => {
-        setError("Password changed") //message for successfully change password
+        setMessage("Password changed") //message for successfully change password
       })
       .catch(() => {
         setError("Failed to update account")
@@ -58,6 +58,7 @@ export default function EditProfile() {
             <Card.Body>
               <h2 className="text-center mb-4">Edit Profile</h2>
               {error && <Alert variant="danger">{error}</Alert>}
+              {message && <Alert variant="success">{message}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="password">
                   <Form.Label>Password</Form.Label><br />
