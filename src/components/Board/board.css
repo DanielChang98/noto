@@ -13,21 +13,13 @@
     flex-direction: column;
     align-items: left;
     background-color: #D8F5FF;
-    width: auto;
-    min-width: 400px;
-    height: 350px;
+    width: 400px;
+    height: auto;
     min-height: 350px;
     border-radius: 20px;
     padding: 20px;
     align-self: center;
     margin-bottom: 30px;
-}
-
-/* Fail to cue the item */
-.kanbanboard.boardform-container{
-    position: absolute;
-    bottom: 0;
-    left: 0;
 }
 
 .sidebar-btn{
@@ -64,10 +56,19 @@
     background-color: white;
 }
 
+
+.board-container{
+    margin-top: 20px;
+    height: auto;
+    min-height: 75vh;
+}
+
 .board-title-container{
     display: flex;
     flex-direction: row;
     margin-left: 10%;
+    justify-content: flex-start;
+    width: 50%;
 }
 
 .board-title{
@@ -88,6 +89,7 @@
 .board-description-container-2{
     display: flex;
     flex-direction: row;
+    margin-right: 20%;
 }
 
 .board-description{
@@ -107,8 +109,9 @@
 }
 
 .cardform-container {
+    margin-top: 15px;
     margin-left: 10%;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .note-container {
@@ -120,100 +123,63 @@
 
 /* six colours arithmetic selector */
 .card-container-2:nth-child(6n-5){
+    background-color: #CCF3FF;
     height: auto;
-    min-height: 350px;
+    min-height: 300px;
     width: 350px;
     border-radius: 20px;
     padding: 20px;
-    /* margin: 2%; */
-    background-color: #CCF3FF;
-    margin: 20px 20px 20px 0;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
+    margin: 0px 30px 20px 0;
 }
 
 .card-container-2:nth-child(6n-4){
+    background-color: #E6CDFF;
     height: auto;
-    min-height: 350px;
+    min-height: 300px;
     width: 350px;
     border-radius: 20px;
     padding: 20px;
-    /* margin: 2%; */
-    background-color: #E6CDFF;
-    margin: 20px 20px 20px 0;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
+    margin: 0px 30px 20px 0;
 }
 
 .card-container-2:nth-child(6n-3){
+    background-color:#C1DEFF;
     height: auto;
-    min-height: 350px;
+    min-height: 300px;
     width: 350px;
     border-radius: 20px;
     padding: 20px;
-    /* margin: 2%; */
-    background-color:#C1DEFF;
-    margin: 20px 20px 20px 0;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
+    margin: 0px 30px 20px 0;
 }
 
 .card-container-2:nth-child(6n-2){
+    background-color: #E3FFF3;
     height: auto;
-    min-height: 350px;
+    min-height: 300px;
     width: 350px;
     border-radius: 20px;
     padding: 20px;
-    /* margin: 2%; */
-    background-color: #E3FFF3;
-    margin: 20px 20px 20px 0;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
+    margin: 0px 30px 20px 0;
 }
 
 .card-container-2:nth-child(6n-1){
+    background-color: #FFF3CA;
     height: auto;
-    min-height: 350px;
+    min-height: 300px;
     width: 350px;
     border-radius: 20px;
     padding: 20px;
-    /* margin: 2%; */
-    background-color: #FFF3CA;
-    margin: 20px 20px 20px 0;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
+    margin: 0px 30px 20px 0;
 }
 
 .card-container-2:nth-child(6n){
+    background-color: #FFDACE;
     height: auto;
-    min-height: 350px;
+    min-height: 300px;
     width: 350px;
     border-radius: 20px;
     padding: 20px;
-    /* margin: 2%; */
-    background-color: #FFDACE;
-    margin: 20px 20px 20px 0;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
-}
-
-.my-board-container{
-    margin-top: 20px;
-    height: auto;
-    min-height: 75vh;
-}
-
-.enter-board-details{
-    margin-top: 15px;
-}
-
-.cardform-group{
-    margin-top: 15px;
-}
-
-.align-board-row{
-    display: flex;
-    flex-direction: row;
+    margin: 0px 30px 20px 0;
 }
 
 .board-buttons{

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import firebase from "firebase/app"
+import './board.css';
 
 class ListForm extends Component {
 
@@ -59,42 +60,41 @@ class ListForm extends Component {
 
     render () {
         return (
-            <div>
+            <div className="cardform-container">
                 {!this.state.isInputMode ? 
-                <div>
-                    <p style={{textAlign: "left", fontSize: "18pt"}}>
-                        <a href="#" onClick={() => this.toggleIsInputMode()}>
-                            Add Card...
-                        </a>
+                <p style={{textAlign: "left", fontSize: "18pt"}}>
+                    <a href="#" onClick={() => this.toggleIsInputMode()}>
+                        Add Card...
+                    </a>
+                </p>
+                :                              
+                <form onSubmit={this.handleSubmit}>
+                    <label style={{color:"#004BA4", fontSize:"22px", fontWeight:"bolder"}}>
+                            New Card
+                    </label>
+                    <p className="cardform-group">
+                        <input 
+                            type="text" 
+                            className="cardform-control" 
+                            placeholder="New card name..." 
+                            ref="name"
+                            onChange={this.handleChange} required/>
                     </p>
-                </div>
-                :           
-                <div className="cardform-body">                     
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="cardform-group">
-                            <input 
-                                type="text" 
-                                className="cardform-control" 
-                                placeholder="New card name..." 
-                                ref="name"
-                                onChange={this.handleChange} required/>
-                        </div>
-                        <div className="cardform-group">
-                            <input 
-                                type="submit" 
-                                className="btn btn-primary" 
-                                value="Save" 
-                                disabled={this.state.isSaveDisabled} 
-                            /> &nbsp;
-                            <input 
-                                type="button" 
-                                className="btn btn-default" 
-                                value="Cancel"
-                                onClick={this.toggleIsInputMode}
-                            />
-                        </div>
-                    </form>
-                </div>
+                    <div className="cardform-group">
+                        <input 
+                            type="submit" 
+                            className="btn btn-primary" 
+                            value="Save" 
+                            disabled={this.state.isSaveDisabled} 
+                        /> &nbsp;
+                        <input 
+                            type="button" 
+                            className="btn btn-default" 
+                            value="Cancel"
+                            onClick={this.toggleIsInputMode}
+                        />
+                    </div>
+                </form>
                 }
             </div>
         );
