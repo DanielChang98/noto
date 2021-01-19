@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react"
 import FirebaseLogin from '../Firebase/LoginFirebaseInit'
-import FirebaseInit from '../contexts/FirebaseInit'
+//import FirebaseInit from '../contexts/FirebaseInit'
 import { Container, Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../contexts/AuthContext"
 import { Link, useHistory } from "react-router-dom"
@@ -28,7 +28,7 @@ export default function Login() {
       FirebaseLogin();
       history.push("/home") //navigate user to dashboard
     } catch {
-      setError("Failed to log in")
+      setError("Wrong email address or password")
     }
 
     setLoading(false)

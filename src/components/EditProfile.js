@@ -11,7 +11,7 @@ export default function EditProfile() {
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const { updatePassword } = useAuth()
-  const [error, setError, setMessage] = useState("")
+  const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
@@ -36,7 +36,7 @@ export default function EditProfile() {
     //run all promises
     Promise.all(promises)
       .then(() => {
-        setMessage("Password changed") //message for successfully change password
+        setError("Password changed") //message for successfully change password
       })
       .catch(() => {
         setError("Failed to update account")
@@ -58,7 +58,6 @@ export default function EditProfile() {
             <Card.Body>
               <h2 className="text-center mb-4">Edit Profile</h2>
               {error && <Alert variant="danger">{error}</Alert>}
-              {message && <Alert variant="success">{message}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="password">
                   <Form.Label>Password</Form.Label><br />
