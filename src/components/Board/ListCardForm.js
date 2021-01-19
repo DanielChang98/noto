@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import firebase from "firebase/app"
+import './board.css'
 
 class ListCardForm extends Component {
 
@@ -45,6 +46,7 @@ class ListCardForm extends Component {
         this.refs.note.value = "";
         this.toggleIsSaveDisabled();
         this.props.toggleIsInputMode(null);
+        this.toggleIsInputMode();
     }
 
 
@@ -54,7 +56,7 @@ class ListCardForm extends Component {
 
     render () {
         return (
-            <div>
+            <div className="card-footer">
                 {!this.state.isInputMode ? 
                 <div>
                     <p style={{textAlign: "left"}}>
@@ -71,6 +73,7 @@ class ListCardForm extends Component {
                                 className="noteform-control" 
                                 placeholder="Type something.."
                                 ref="note" 
+                                style={{width: "100%"}}
                                 onChange={this.handleChange} required>
                             </textarea>
                         </div>

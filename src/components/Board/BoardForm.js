@@ -56,7 +56,6 @@ class BoardForm extends Component{
     render (){
         return (
             <div className="createBoardForm">
-                <div className="board-body">
                 {
                     !this.state.isInputMode ?
                     <p><a href="#" onClick = { () => this.toggleInputMode ()}>
@@ -64,37 +63,41 @@ class BoardForm extends Component{
                     </p>
                     :
                     <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
+                        <label style={{color:"#004BA4", fontSize:"22px", fontWeight:"bolder"}}>
+                            New Board
+                        </label>
+                        <p className="form-group">
                             <input 
                                 type="text" 
                                 className="enter-board-details" 
                                 placeholder="New board name..." 
                                 ref="name" 
+                                style={{width: "100%"}}
                                 onChange={this.handleChange} required/>
-                        </div>
-                        <div>
+                        </p>
+                        <p>
                             <input
                                 type="text"
                                 className="enter-board-description"
                                 placeholder="Board Description..."
                                 ref="description"
+                                style={{width: "100%"}}
                                 onChange={this.handleChange} required/>
-                        </div>
-                        <div className="enter-board-details">
+                        </p>
+                        <div>
                             <input 
                                 type="submit" 
-                                className="save-button" 
+                                className="btn btn-primary" 
                                 value="Save" 
                                 disabled={this.state.isSaveDisabled} /> &nbsp;
                             <input 
                                 type="button" 
-                                className="cancel-button" 
+                                className="btn btn-default" 
                                 value="Cancel" 
                                 onClick={this.toggleInputMode} />
                         </div>
                     </form>
                 }
-                </div>
         </div>
         );
     }
