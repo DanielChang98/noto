@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import firebase from "firebase/app"
-import './board.css';
 import { Button, IconButton, Menu, MenuItem, Dialog, DialogContent, DialogActions, TextField} from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import './board.css';
 
 class ListCard extends Component {
     
