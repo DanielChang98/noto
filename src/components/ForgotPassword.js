@@ -36,7 +36,7 @@ export default function ForgotPassword() {
         style={{ minHeight: "100vh" }}
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
-        <Card className="w-100 mt-2">
+        <Card className="w-100 mt-2 p-4">
             <Card.Body>
               <h2 className="text-center mb-4">Password Reset</h2>
               {error && <Alert variant="danger">{error}</Alert>}
