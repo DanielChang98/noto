@@ -41,6 +41,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 10px;
+    margin-bottom: 10px;
     margin-right: 5%;
     margin-left: 10%;
     /* align-items: center; */
@@ -194,4 +195,37 @@
     margin: 20px 20px 20px 0;
     /* margin-top: 10px;
     margin-bottom: 10px; */
+}
+
+.my-board-container{
+    margin-top: 20px;
+    height: auto;
+    min-height: 75vh;
+}
+
+.enter-board-details{
+    margin-top: 15px;
+}
+
+.cardform-group{
+    margin-top: 15px;
+}
+
+.align-board-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.board-buttons{
+    justify-content: space-between;
+    flex-direction: row;
+    display: flex;
+}
+
+.board-button-align{
+    margin-right: 3%;
+}
+
+.board-button-align2{
+    padding-right: 43%;
 }

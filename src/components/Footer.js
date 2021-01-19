@@ -7,9 +7,9 @@ const Footer = () => {
             <div className = "footer-bar">
                 <p> </p>
             </div>
-            <div className = "container">
+            <div className = "footer-container">
                 <p className = "name">
-                    Noto &copy; 2020
+                    Noto &copy; 2021
                 </p>
             </div>
         </div>

@@ -125,8 +125,9 @@ class Board extends Component {
         const boardDetails = JSON.parse(sessionStorage.getItem("board"));
         
         return (
-            <>
+            <div>
             <NavBar/>
+            <div className = "my-board-container">            
             {/* <div className = "sidebar-btn">
                     <IconButton>
                         <DehazeIcon/>
@@ -136,25 +137,36 @@ class Board extends Component {
                 <p className="board-title">
                     {this.state.updateBoardTitle}
                 </p>
-                <IconButton aria-label="Edit" onClick={() => this.openUpdateDialog(boardDetails)} >
-                    <EditIcon/>
-                </IconButton>
             </div>
             <div className="board-description-container">
                 <div className="board-description-container-2">
                 <p className="board-description">
                     {this.state.updateBoardDescription}
                 </p>
-                <IconButton aria-label="Edit" onClick={() => this.openUpdateDialog(boardDetails)} >
-                    <EditIcon/>
-                </IconButton>
                 </div>
-                <Button edge="end" variant = "contained" color="secondary" startIcon={<DeleteIcon />}
-                    onClick={this.openDeleteDialog}
-                >
-                    Delete
-                </Button>
+
+                <div className="board-buttons">
+                    <div className="board-button-align">
+                        <Button edge="end" variant="contained" color="primary" startIcon={<EditIcon />} 
+                        onClick={() => this.openUpdateDialog(boardDetails)} >
+                            Edit
+                        </Button>
+                    </div>
+                    
+                    <div className="board-button-align2">
+                        <Button edge="end" variant = "contained" color="secondary" startIcon={<DeleteIcon />}
+                            onClick={this.openDeleteDialog}
+                        >
+                            Delete
+                        </Button>
+                    </div>
+                </div>
             </div>
+
+            <div className="cardform-container">
+                <ListForm boardKey={this.props.match.params.key} />
+            </div>
+
             <div className = "cards-arrangement">
                 {cards}
                 <Dialog open={this.state.dialogOpen} onClose={this.handleClose}>
@@ -191,7 +203,7 @@ class Board extends Component {
                         <Button onClick={() => this.editBoardDetails(boardDetails)} color="primary">
                             Save
                         </Button>
-                        </DialogActions>
+                    </DialogActions>
                 </Dialog>
 
                 <Dialog 
@@ -219,12 +231,9 @@ class Board extends Component {
                 </Dialog>
             </div>
             
-            <div className="cardform-container">
-                <ListForm boardKey={this.props.match.params.key} />
             </div>
-            
             <Footer/>
-            </>
+            </div>
         );
     }
 }
