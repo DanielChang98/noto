@@ -9,22 +9,6 @@ import { VictoryBar, VictoryChart, VictoryAxis  } from 'victory';
 
 import './report.css'
 
-var info = [];
-
-const trying = [
-    {
-        date: 0,
-        hour: 1500
-    },
-    {
-        date: 1,
-        hour: 1500
-    },
-    {
-        date: 3,
-        hour: 1500
-    }
-]
 
 const fakeData = {
     x: 10.0,
