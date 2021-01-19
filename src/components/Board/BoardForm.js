@@ -31,8 +31,8 @@ class BoardForm extends Component{
     toggleIsSaveDisabled () {
         this.setState(
             {
-                isSaveDisabled: (this.refs.name.value.length < this.MIN_LENGTH),
-                isSaveDisabled: (this.refs.description.value.length < this.MIN_LENGTH)
+                isSaveDisabled: 
+                    (this.refs.name.value.length < this.MIN_LENGTH || this.refs.description.value.length < this.MIN_LENGTH),
             }
         );
     }

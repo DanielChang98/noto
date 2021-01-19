@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 import firebase from "firebase/app"
+import {Button, Dialog, DialogContent, DialogActions, TextField, DialogTitle, DialogContentText} from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 import ListPanel from "./ListPanel"
 import ListForm from "./ListForm"
 import NavBar from "../NavBar";
 import Footer from "../Footer";
-import {Button, IconButton, Dialog, DialogContent, DialogActions, TextField, DialogTitle, DialogContentText} from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
 
 import './board.css';
 
