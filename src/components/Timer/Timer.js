@@ -110,7 +110,6 @@ export default class TimerPage extends React.Component{
     
     reset(resetFor = this.state.time) {
         clearInterval(this.interval);
-        let time = this.format(resetFor);
         this.setState({play: false});
     }
     
@@ -187,7 +186,7 @@ export default class TimerPage extends React.Component{
     }
     
     _getLocalStorage (item) {
-        return (localStorage.getItem('react-pomodoro-' + item) == 'true') ? true : false;
+        return (localStorage.getItem('react-pomodoro-' + item) === 'true') ? true : false;
     }
     
     alert() {
