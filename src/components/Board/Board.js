@@ -130,13 +130,13 @@ class Board extends Component {
             <div className = "board-container">           
             <div className="board-title-container">
                 <p className="board-title">
-                    {this.state.updateBoardTitle}
+                    {boardDetails.title}
                 </p>
             </div>
             <div className="board-description-container">
                 <div className="board-description-container-2">
                 <p className="board-description">
-                    {this.state.updateBoardDescription}
+                    {boardDetails.description}
                 </p>
                 </div>
 
@@ -173,7 +173,7 @@ class Board extends Component {
                             variant="outlined"
                             fullWidth
                             name="updateBoardTitle"
-                            defaultValue={this.state.updateBoardTitle}
+                            defaultValue={boardDetails.title}
                             onChange={e => this.setState({updateBoardTitle: e.target.value})}
                         />
                         <TextField
@@ -185,7 +185,7 @@ class Board extends Component {
                             variant="outlined"
                             fullWidth
                             name="updateBoardDescription"
-                            defaultValue={this.state.updateBoardDescription}
+                            defaultValue={boardDetails.description}
                             onChange={e => this.setState({updateBoardDescription: e.target.value})}
                         />
                     </DialogContent>
