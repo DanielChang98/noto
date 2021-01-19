@@ -7,9 +7,9 @@ function NotoNavBar()
     return (
     <div className="nav-container">
             <div className="align-row1">
-                <div className = "nav-sub1">
+                <div className = "nav-sub2">
                     <img src={logo} alt="Logo"/>
-                    <p>Noto</p>
+                    <p className="noto-2">Noto</p>
                 </div>
                 <div className="buttons-register-login">
                     <div className="buttons-register-login-holder">

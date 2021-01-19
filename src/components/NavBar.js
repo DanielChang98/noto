@@ -28,10 +28,9 @@ function NavBar()
                     <img src={logo} alt="Logo"/>
                     <p>Noto</p>
                 </div>
-                <div className="buttons-navbar">
                     <div className="buttons-navbar-holder">
                         <ul>
-                            <li><a href="/home">Dashboard</a></li>
+                            <li><a href="/home">Home</a></li>
                             <li><a href="/to-do-dashboard">Tasks</a></li>
                             <li><a href="/board-dashboard">Board</a></li>
                             <li><a href="/timer">Timer</a></li>
@@ -45,7 +44,6 @@ function NavBar()
                             </li>
                         </ul>
                     </div>
-                </div>
             </div>
                 
             <div className="navi-bar">

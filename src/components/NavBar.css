@@ -9,7 +9,7 @@
     height: 10px;
     background: linear-gradient(180deg, #D8F5FF 0%, rgba(255, 255, 255, 0) 100%), #C1DEFF;
     box-shadow: 0px 4px 4px #E5E5E5;
-    margin-top: -30px;
+    margin-top: -20px;
 }
 
 .nav-container{
@@ -37,6 +37,21 @@
     color: #19467A;
 }
 
+.nav-sub2{
+    font-weight: 700;
+    font-size: 28px;
+    font-family: 'Roboto Slab', serif;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding-left: 20px;
+}
+
+.nav-sub2 p{
+    color: #19467A;
+    padding-top: 20px;
+}
+
 .align-row p{
     padding-top: 20px;
     text-align: center;
@@ -44,19 +59,6 @@
 
 .align-row1 {
     justify-content: space-between;
-}
-
-.buttons-navbar{
-    display: flex;
-    justify-content: center;
-}
-
-.buttons-navbar-holder{
-    align-items: center;
-    align-content: center;
-    text-align: center;
-    display: flex;
-    justify-content: center;
 }
 
 .buttons-navbar ul{
@@ -69,31 +71,53 @@
     list-style-type: none;
 }
 
-ul{
-    display: flex;
-    justify-content:center;
+.buttons-navbar-holder ul{
+    text-align: center;
+    display: inline-block;
 }
 
-.buttons-navbar ul li:last-child {
-    margin-top: -10px;
+.buttons-navbar-holder{
+    display: table;   /* Allow the centering to work */
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
-.buttons-navbar .buttons-navbar-holder li a{
+.buttons-navbar-holder ul li a:last-child {
+    color: #76B4FF;
+}
+
+.buttons-navbar-holder ul li a:last-child:hover {
+    color: #19467A;
+}
+
+.buttons-navbar-holder li{
+    display: inline;
+    margin-top: 10px;
+}
+
+.buttons-navbar-holder li a{
     font-size: 24px;
     cursor: pointer;
     border: none;
     font-family: "Roboto", sans-serif;
     color: #76B4FF;
     font-weight: 700;
-    margin-top: -80px;
     text-decoration: none;
 }
 
-.buttons-navbar .buttons-navbar-holder li a:hover{
+.buttons-navbar-holder li a:hover{
     color: #19467A;
 }
 
 .nav-sub1 img{
+    width: auto;
+    height: 60px;
+    display: flex;
+    margin: 10px;
+}
+
+.nav-sub2 img{
     width: auto;
     height: 60px;
     display: flex;
@@ -113,7 +137,12 @@ ul{
 .buttons-register-login-holder{
     justify-content: flex-end;
     display: flex;
-    margin-top: -5%;
+}
+
+.buttons-register-login-holder ul{
+    display: flex;
+    justify-content:center;
+    margin-top: -85px;
 }
 
 .buttons-register-login .buttons-register-login-holder li a{
@@ -123,7 +152,6 @@ ul{
     font-family: "Roboto", sans-serif;
     color: #76B4FF;
     font-weight: 700;
-    margin-top: -80px;
     text-decoration: none;
 }
 

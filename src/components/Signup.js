@@ -35,9 +35,15 @@ export default function Signup() {
     try {
       //await - wait for signup to finish
       await signup(emailRef.current.value, passwordRef.current.value) //create account      
-    } catch {
-      setError("Failed to create an account")
+    } catch(error){
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+        alert('Email already in use !')
+      break;
+      default:
+        setError("Failed to create an account")
     }
+  }
 
     //run all promises
     Promise.all(promises)
